@@ -2,17 +2,17 @@
 
 - Installation and Setup
     - Install following software and dependencies to run the project:        
-        - NodeJS (v8.11.3)
-        - NPM (6.1.0)
-        - Ionic Framework (ionic-angular 3.9.2)
-            - npm install -g ionic@3.9.2
+        - [Download the installer](https://nodejs.org/) for Node.js (v8.11.3)
+        - Install the ionic CLI globally: (ionic-angular 3.9.2)
+            - `npm install -g ionic@3.9.2`
         - Cordova (Cordova CLI) : 8.0.0
-            - npm install -g cordova@8.0.0
+            - `npm install -g cordova@8.0.0`
         - for more Information https://ionicframework.com/getting-started
     - how to run development server / how to test on devices
-        - ionic serve (run the project localy)
-        - ionic cordova run [<platform>] [options]
-            - i.e. ionic cordova run android
+        - Run `npm install` from the project root
+        - Run `ionic serve` in a terminal from the project root
+        - Deploy on a Device: Run `ionic cordova run [<platform>] [options]`
+            - i.e. `ionic cordova run android`
         - For more Information https://ionicframework.com/docs/cli/commands/cordova-run
     - how to install new plugins, save them, and install them for different plattforms
         - For more Information https://ionicframework.com/docs/native
