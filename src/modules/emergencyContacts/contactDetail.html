@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData"></sonia-header-bar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header text-wrap>
+      <h1 *ngIf="contact.firstname && contact.lastname && !contact.isOrganisation">{{ contact.firstname }} {{ contact.lastname }}</h1>
+      <h1 *ngIf="contact.organisationName && contact.isOrganisation">{{ contact.organisationName }}</h1>
+      <ion-note *ngIf="contact.isOrganisation">Organisation</ion-note>
+      <ion-note *ngIf="!contact.isOrganisation">Person</ion-note>
+    </ion-card-header>
+    <ion-card-content text-wrap>
+      <ion-list no-lines>
+        <ion-item *ngIf="contact.phone">
+          <b>Telefon (geschäftlich Zentrale):</b>
+          <h3>{{contact.phone}}</h3>
+          <button *ngIf="!platform.is('core')" ion-button item-right icon-left clear (click)="call(contact.phone)">
+            <ion-icon name="call"></ion-icon>
+            Anrufen
+          </button>
+          <a *ngIf="platform.is('core')" ion-item href="tel:{{contact.phone}}">
+            <button ion-button item-right icon-left clear>
+              <ion-icon name="call"></ion-icon>
+              Anrufen
+            </button>
+          </a>
+        </ion-item>
+        <ion-item *ngIf="contact.phonefieldstr4">
+          <b>Telefon (geschäftlich Durchwahl):</b>
+          <h3>{{contact.phonefieldstr4}}</h3>
+          <button *ngIf="!platform.is('core')" ion-button item-right icon-left clear (click)="call(contact.phonefieldstr4)">
+            <ion-icon name="call"></ion-icon>
+            Anrufen
+          </button>
+          <a *ngIf="platform.is('core')" ion-item href="tel:{{contact.phonefieldstr4}}">
+            <button ion-button item-right icon-left clear>
+              <ion-icon name="call"></ion-icon>
+              Anrufen
+            </button>
+          </a>
+        </ion-item>
+        <ion-item *ngIf="contact.phonefieldstr7">
+          <b>Telefon (privat Festnetz):</b>
+          <h3>{{contact.phonefieldstr7}}</h3>
+          <button *ngIf="!platform.is('core')" ion-button item-right icon-left clear (click)="call(contact.phonefieldstr7)">
+            <ion-icon name="call"></ion-icon>
+            Anrufen
+          </button>
+          <a *ngIf="platform.is('core')" ion-item href="tel:{{contact.phonefieldstr7}}">
+            <button ion-button item-right icon-left clear>
+              <ion-icon name="call"></ion-icon>
+              Anrufen
+            </button>
+          </a>
+        </ion-item>
+        <ion-item *ngIf="contact.phonefieldstr3">
+          <b>Telefon (privat mobil):</b>
+          <h3>{{contact.phonefieldstr3}}</h3>
+          <button *ngIf="!platform.is('core')" ion-button item-right icon-left clear (click)="call(contact.phonefieldstr3)">
+            <ion-icon name="call"></ion-icon>
+            Anrufen
+          </button>
+          <a *ngIf="platform.is('core')" ion-item href="tel:{{contact.phonefieldstr3}}">
+            <button ion-button item-right icon-left clear>
+              <ion-icon name="call"></ion-icon>
+              Anrufen
+            </button>
+          </a>
+        </ion-item>
+        <ion-item *ngIf="contact.fax">
+          <b>Fax:</b>
+          <h3>{{contact.fax}}</h3>
+        </ion-item>
+        <ion-item *ngIf="contact.faxfieldstr4">
+          <b>Fax (privat):</b>
+          <h3>{{contact.faxfieldstr4}}</h3>
+        </ion-item>
+        <ion-item *ngIf="contact.faxfieldstr4">
+          <b>Fax (geschäftlich):</b>
+          <h3>{{contact.faxfieldstr1}}</h3>
+        </ion-item>
+        <ion-item *ngIf="contact.mail">
+          <b>E-mail:</b>
+          <h3>{{contact.mail}}</h3>
+          <button ion-button item-right icon-left clear (click)="sendMail(contact.mail)">
+            <ion-icon name="mail"></ion-icon>
+            Anschreiben
+          </button>
+        </ion-item>
+        <ion-item *ngIf="contact.mailfieldstr1">
+          <b>E-mail (geschäftlich):</b>
+          <h3>{{contact.mailfieldstr1}}</h3>
+          <button ion-button item-right icon-left clear (click)="sendMail(contact.mailfieldstr1)">
+            <ion-icon name="mail"></ion-icon>
+            Anschreiben
+          </button>
+        </ion-item>
+        <ion-item *ngIf="contact.mailfieldstr3">
+          <b>E-mail (privat):</b>
+          <h3>{{contact.mailfieldstr3}}</h3>
+          <button ion-button item-right icon-left clear (click)="sendMail(contact.mailfieldstr3)">
+            <ion-icon name="mail"></ion-icon>
+            Anschreiben
+          </button>
+        </ion-item>
+        <ion-item *ngIf="contact.address">
+          <b>Adresse (geschäftlich):</b>
+          <h3>{{contact.address}}</h3>
+          <button *ngIf="!platform.is('core')" ion-button item-right icon-left clear (click)="navigate(contact.address)">
+            <ion-icon name="navigate"></ion-icon>
+            Navigieren
+          </button>
+        </ion-item>
+        <ion-item *ngIf="contact.PrivateAddress">
+          <b>Adresse (privat):</b>
+          <h3>{{contact.PrivateAddress}}</h3>
+          <button *ngIf="!platform.is('core')" ion-button item-right icon-left clear (click)="navigate(contact.PrivateAddress)">
+            <ion-icon name="navigate"></ion-icon>
+            Navigieren
+          </button>
+        </ion-item>
+        <ion-item *ngIf="contact.homepage">
+          <b>Homepage:</b>
+          <a (click)="openLink(contact.homepage)">{{contact.homepage}}</a>
+        </ion-item>
+        <ion-item *ngIf="!contact.phone && !contact.address 
+        && !contact.fax && !contact.mail && !contact.homepage">
+        <b>Zu dieser Person oder Organisation liegt leider keine Information vor.</b>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

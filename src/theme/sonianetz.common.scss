@@ -1,0 +1,180 @@
+/**
+* Default Layout Styles
+**/
+
+ion-content.no-top-padding {
+  padding-top: 0;
+  scroll-content {
+    padding-top: 0;
+  }
+}
+
+
+/* custom sonia navbar */
+
+.sonia-navbar {
+  /* default text and button color, if not specified in state config json */
+  color: #ffffff;
+  /* ionic overrides - so we can set color on parent elements */
+  .toolbar-title {
+    color: inherit;
+  }
+  .back-button,
+  .button {
+    color: inherit;
+    &:hover {
+      color: inherit;
+      opacity: 0.8;
+    }
+  }
+}
+
+.sonia-sub-header-bar {
+  .title-small {
+    font-size: 1.6rem;
+    line-height: 1;
+    display: block;
+    color: color($sonia-colors, textLighter);
+  }
+}
+
+.sonia-toolbar {
+  /* default text and button color, if not specified in state config json */
+  color: #ffffff;
+  button,
+  .bar-button-default {
+    color: inherit;
+    &:hover {
+      color: inherit;
+      opacity: 0.8;
+    }
+  } // label in front of clear buttons
+  ion-buttons label {
+    position: relative;
+    top: 4px;
+    padding: 5px 5px 5px 10px;
+  }
+}
+
+.sonia-tabs {
+  tab-highlight {
+    background-color: #000!important;
+    opacity: .4;
+    height: 3px;
+  }
+}
+
+.sonia-card {
+  background-color: #ffffff;
+  ion-card-header {
+    white-space: normal;
+  }
+  ion-card-title {
+    color: inherit;
+  }
+  .sonia-card-footer {
+    background: color($colors, light);
+    ion-note {
+      color: color($sonia-colors, textLighter);
+    }
+  }
+}
+
+.sonia-info-card {
+  background: #fff;
+  margin: 0;
+  width: auto;
+  font-size: 1.6rem; // box-shadow: none;
+  ion-card-content,
+  p {
+    font-size: inherit;
+  }
+}
+
+.sonia-info-table {
+  width: 100%;
+  th,
+  td {
+    padding: 8px 8px 8px 0;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    color: color($sonia-colors, textLighter);
+    font-weight: normal;
+    width: 100px;
+  }
+  .sub {
+    color: color($sonia-colors, textLighter);
+    font-style: italic;
+  }
+  ion-card-content>& {
+    tr:first-child {
+      th,
+      td {
+        padding-top: 0;
+      }
+    }
+    tr:last-child {
+      th,
+      td {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+
+/**
+* Layout for single entry pages with text on white background
+* and optional header seaction on the defaul gray background
+**/
+
+ion-content.sonia-single-entry {
+  background-color: #fff;
+  .sonia-single-entry__header {
+    background-color: $background-color;
+  }
+  .sonia-single-entry__content {
+    section {
+      padding: 8px 0;
+    }
+    p {
+      line-height: 1.5;
+    }
+    ul {
+      padding-left: 20px;
+    }
+  }
+}
+
+// adopt padding of ion-content[padding]
+ion-content.sonia-single-entry[padding] {
+  ion-content,
+  scroll-content {
+    padding: 0;
+  }
+  .sonia-single-entry__header,
+  .sonia-single-entry__content {
+    padding: 16px;
+  }
+}
+
+
+/**
+* Loading
+**/
+
+.sonia-no-entries-warning {}
+
+.sonia-online-loading-indicator {}
+
+.sonia-online-loading-indicator-large {}
+
+
+/**
+* formControls
+**/
+
+.sonia-item-row {}
+

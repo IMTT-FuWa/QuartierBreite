@@ -1,0 +1,17 @@
+@import "./theme/sonianetz.variables";
+sonia-online-loading-indicator {
+  font-size: 14px;
+  color: color($sonia-colors, textLighter);
+  .loading {
+    display: flex;
+    align-items: center;
+    margin: -5px -8px -5px 0;
+    &>span {
+      padding-right: 5px;
+    }
+  }
+  ion-card-header .sonia-online-loading-indicator {
+    float: right;
+  }
+}
+

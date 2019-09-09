@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData" [isHome]="false"></sonia-header-bar>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-buttons left>
+      <ion-title>
+        <span *ngIf="receiver">Chat mit {{receiver}}</span>
+        <em class="title-small" *ngIf="!receiver">Nicht angemeldet</em>
+      </ion-title>
+    </ion-buttons>
+    <ion-buttons right>
+      <button *ngIf="isGroupchat" ion-button clear icon-left (click)="goToUsers()">
+        <ion-icon name="people"></ion-icon>
+        <div *ngIf="!platform.is('mobile') || platform.isLandscape()">Mitglieder</div>
+      </button>
+      <button *ngIf="isGroupchat && hasModRights()" ion-button clear icon-left (click)="deleteGroup()">
+        <ion-icon name="trash"></ion-icon>
+        <div *ngIf="!platform.is('mobile') || platform.isLandscape()">Gruppe Löschen</div>
+      </button>
+      <button ion-button icon-only (click)="expand()" *ngIf="!platform.is('core')">
+        <ion-icon name="resize"></ion-icon>
+      </button>
+      <button ion-button icon-only *ngIf="isOnline() && !platform.is('core')" (click)="accessGallery()">
+        <ion-icon name="image"></ion-icon>
+      </button>
+      <button ion-button icon-only item-right icon-left (click)="accessCamera()" *ngIf="!platform.is('core')">
+        <ion-icon name="camera"></ion-icon>
+      </button>
+      <div class="offline" *ngIf="!isOnline()">
+        <span>
+          <em>Sie sind Offline</em>
+        </span>
+      </div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #content padding class="chat">  
+  <ion-card *ngIf="chatMessages?.length <= 0">
+    <ion-item>
+      <div text-center text-wrap>
+        <b>Herzlich Willkommen zum Chat. Hier können Sie Ihre Nachrichten schreiben </b>
+        <ion-icon name="happy"></ion-icon>
+      </div>
+    </ion-item>
+  </ion-card>
+  <sonia-online-loading-indicator-large *ngIf="chatMessages?.length <= 0" [loading]="loadingData"></sonia-online-loading-indicator-large>
+  <ion-card>
+    <ion-list text-wrap>
+      <div *ngFor="let chatMessage of chatMessages">
+        <ion-item-sliding #item>
+          <ion-item *ngIf="isSender(chatMessage.sender)">
+            <p [style.font-size.px]="fontSize">
+              <b>{{formatSender(chatMessage.sender)}}:</b> <span [innerHTML]="chatMessage.message | linkify | linebreak"></span> </p>
+            <img *ngIf="chatMessage.image" #image src="{{chatMessage.image}}" (click)="openPhoto(image)" />
+            <ion-note color="dark" [style.font-size.px]="fontSizeNote">{{chatMessage.timestamp | momentDate:"mediumDate2" }}, {{chatMessage.timestamp | momentDate:"mediumTime" }}</ion-note>
+            <ion-icon name="checkmark" *ngIf="!chatMessage.read &&!isGroupchat" item-right></ion-icon>
+            <ion-icon name="done-all" *ngIf="chatMessage.read  &&!isGroupchat" item-right></ion-icon>
+          </ion-item>
+          <ion-item-options side="left">
+            <button ion-button color="danger" (click)="deleteMessage(chatMessage)">
+              <ion-icon name="trash"></ion-icon>
+              Löschen
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+        <!-- <ion-item-divider *ngIf="hasChanged(chatMessage.timestamp)">
+          Item Divider
+        </ion-item-divider> -->
+        <ion-item-sliding #item>
+          <ion-item *ngIf="!isSender(chatMessage.sender)">
+            <p [style.font-size.px]="fontSize">
+              <b>{{formatSender(chatMessage.sender)}}:</b> <span [innerHTML]="chatMessage.message | linkify | linebreak"></span> </p>
+            <img *ngIf="chatMessage.image" #image src="{{chatMessage.image}}" (click)="openPhoto(image)" />
+            <ion-note color="dark" [style.font-size.px]="fontSizeNote">{{chatMessage.timestamp | momentDate:"mediumDate2" }}, {{chatMessage.timestamp | momentDate:"mediumTime" }}</ion-note>
+            <ion-icon name="checkmark" *ngIf="!chatMessage.read  &&!isGroupchat" item-right></ion-icon>
+            <ion-icon name="done-all" *ngIf="chatMessage.read  &&!isGroupchat" item-right></ion-icon>
+          </ion-item>
+        </ion-item-sliding>
+      </div>
+    </ion-list>
+  </ion-card>
+</ion-content>
+
+<!-- align to the bottom of the page -->
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-10>
+        <ion-item>
+          <ion-textarea [disabled]="!isOnline()" [(ngModel)]="chatinp" type="text" placeholder="Schreiben Sie eine Nachricht"></ion-textarea>
+        </ion-item>
+      </ion-col>
+      <ion-col col-2>
+        <button icon-only ion-button block (click)="send(chatinp)">
+          <ion-icon name="send"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

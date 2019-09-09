@@ -1,0 +1,15 @@
+sonia-online-loading-indicator-large {
+  text-align: center;
+  color: color($sonia-colors, textLighter);
+  &>div {
+    padding: 10px 0;
+  }
+  p {
+    color: inherit;
+    margin: 0;
+  }
+  .loading p {
+    padding-bottom: 5px;
+  }
+}
+

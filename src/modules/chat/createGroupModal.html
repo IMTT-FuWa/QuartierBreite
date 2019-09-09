@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar color="communication">
+        <ion-title>Neue Chatgruppe erstellen</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-right color="royal" (click)="dismiss()">
+                Abbrechen
+                <ion-icon name="close-circle"></ion-icon>
+            </button>
+            <button ion-button icon-right color="royal" (click)="submit()">
+                Ok
+                <ion-icon name="checkmark-circle"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+        <ion-label stacked>Gruppenname</ion-label>
+        <ion-input type="text" value="" [(ngModel)]="groupname"></ion-input>
+    </ion-item>
+    <p>Nutzer wählen</p>
+    <ion-searchbar placeholder="Benutzer suchen" (ionInput)="searchUsers($event)"></ion-searchbar>
+    <ion-item *ngFor="let user of users">
+        <ion-label>{{ user.firstname }} {{ user.lastname }}</ion-label>
+        <ion-checkbox [checked]="isUserChecked(user)" *ngIf="user.GGUID!=ownUser.GGUID" (click)="addOrRemoveUser(user)"></ion-checkbox>
+        <ion-checkbox *ngIf="user.GGUID==ownUser.GGUID" disabled="true" checked="true"></ion-checkbox>
+    </ion-item>
+</ion-content>

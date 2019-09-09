@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData" [isHome]="false"></sonia-header-bar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h3>Termine importieren</h3>
+  <form [formGroup]="formControls" (ngSubmit)="onSubmit()">
+    <ion-item-group>
+      <sonia-item-row>
+        <ion-item class="row-label">
+          <ion-label fixed>Von</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="TT.MM.JJJJ" [formControl]="formControls.controls['start']"></ion-input>
+        </ion-item>
+      </sonia-item-row>
+      <sonia-item-row>
+        <ion-item class="row-label">
+          <ion-label fixed>Bis</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="TT.MM.JJJJ" [formControl]="formControls.controls['end']"></ion-input>
+        </ion-item>
+      </sonia-item-row>
+    </ion-item-group>
+  </form>
+  <ion-card>
+    <ion-list>
+      <div *ngFor="let appointment of appointments" (click)="importAppointment(appointment)">
+        <ion-item>
+          <p style="white-space:pre-wrap;"><b>{{appointment.title}}</b></p>
+          <ion-note color="dark">{{appointment.start | momentDate:"mediumDate" }}</ion-note>
+          <ion-icon name="download" item-right></ion-icon>
+        </ion-item>
+      </div>
+    </ion-list>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar position="bottom" [sonia-custom-toolbar]="pageData">
+    <ion-buttons start>
+      <button ion-button icon-left (click)="back()">
+                <ion-icon name="close"></ion-icon>
+                Abbrechen
+            </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-left type="submit" [disabled]="!formControls.valid" (click)="import()">
+                <ion-icon name="checkmark"></ion-icon>
+                Suchen
+            </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

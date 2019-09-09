@@ -1,0 +1,34 @@
+<!-- Header and Footer area - must be present on every @Page -->
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData"></sonia-header-bar>
+  </ion-navbar>
+</ion-header>
+
+<!-- END: Header and Footer area -->
+
+<ion-content padding>
+
+  <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item [class.error]="!username.valid && username.touched">
+        <ion-icon name="contact" item-left></ion-icon>
+        <ion-label stacked>Benutzername</ion-label>
+        <ion-input type="text" value="" [formControl]="username"></ion-input>
+      </ion-item>
+      <div *ngIf="username.hasError('required') && username.touched" class="error-box">* Der Benutzername ist erforderlich!</div>
+      <div *ngIf="username.hasError('minlength') && username.touched" class="error-box">* Die Mindestlänge von Benutzernamen ist 8-Charakter!</div>
+
+      <ion-item [class.error]="!password.valid && password.touched">
+        <ion-icon name="lock" item-left></ion-icon>
+        <ion-label stacked>Passwort</ion-label>
+        <ion-input type="password" value="" [formControl]="password"></ion-input>
+      </ion-item>
+      <div *ngIf="password.hasError('required') && password.touched" class="error-box">* Das Passwort ist erforderlich!</div>
+      <div *ngIf="password.hasError('minlength') && password.touched" class="error-box">* Die Mindestlänge des Passworts ist 8-Charakter!</div>
+
+
+      <button ion-button type="submit" [disabled]="!authForm.valid" block>Absenden</button>
+    </ion-list>
+  </form>
+</ion-content>

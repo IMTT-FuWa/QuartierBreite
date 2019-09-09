@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData"></sonia-header-bar>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-buttons right>
+      <button ion-button (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="popover-page">
+  <ion-card class="sonia-card" [sonia-custom-card]="pageData">
+    <ion-item>
+      <ion-note>{{proposal.author}}, {{proposal.timestamp | momentDate:"mediumDate" }}, {{proposal.timestamp | momentDate:"mediumTime" }}</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-note>Schwarzes Brett: {{blackboard.title}}</ion-note>
+    </ion-item>
+    <ion-card-header (click)="openBlackboard()">
+      <ion-card-title [innerHTML]="proposal.title | linkify">{{proposal.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p [innerHTML]="proposal.content | linkify" style="white-space:pre-wrap;user-select: auto !important;" #popoverContent #popoverText class="text-to-change">
+        \n{{proposal.content}}
+      </p>
+      <a (click)="openLink(proposal.weblink)">{{proposal.weblink}}</a>
+      <!-- <div><img *ngIf="proposal && proposal.document" #image src="{{proposal.document}}" (click)="openPhoto(image)" /></div> -->
+      <div><img *ngIf="proposal && proposal.document" #image [src]="sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' + proposal.document)" (click)="openPhoto(image)" /></div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar position="bottom" [sonia-custom-toolbar]="pageData">
+    <ion-buttons>
+      <button ion-button icon-left (click)="openBlackboard()">
+                <ion-icon name="arrow-back"></ion-icon>
+                Übersicht
+            </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button *ngIf="isUserOfPost()" ion-button icon-left item-right color="primary" (click)="delete(proposal)" clear>
+                <ion-icon name="trash"></ion-icon>
+                <div>Löschen</div>
+            </button>
+      <button *ngIf="isUserOfPost()" ion-button icon-left item-right color="primary" (click)="edit(proposal)" clear>
+                <ion-icon name="create"></ion-icon>
+                <div>Bearbeiten</div>
+            </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

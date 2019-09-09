@@ -1,0 +1,44 @@
+{
+  "launcherSolitaer":{
+    "_comment": "Solitär",
+    "type": "",
+    "id": "",
+    "icon": "heart",
+    "name": "Solitär"
+  },
+  "launcherSudoko":{
+    "_comment": "Sudoko",
+    "type": "",
+    "id": "",
+    "icon": "grid",
+    "name": "Sudoko"
+  },
+  "launcherAnagramm":{
+    "_comment": "Anagramm",
+    "type": "custom-icon-anagram",
+    "id": "",
+    "icon": "",
+    "name": "Anagramm"
+  },
+  "launcherQuizduell":{
+    "_comment": "Quizduell",
+    "type": "custom-icon-quizduell",
+    "id": "",
+    "icon": "",
+    "name": "Quizduell"
+  },
+  "launcherMahjong":{
+    "_comment": "Mahjong",
+    "type": "custom-icon-mahjong",
+    "id": "",
+    "icon": "",
+    "name": "Mahjong"
+  },
+  "launcherGedaechnistraining":{
+    "_comment": "Gedächtnistraining",
+    "type": "",
+    "id": "",
+    "icon": "logo-buffer",
+    "name": "Gedächtnistraining"
+  }
+}

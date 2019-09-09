@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData" [needsConfirmToLeave]="needsConfirmToLeave" (leaveViewEmitter)="leaveView()"
+      [isHome]="false"></sonia-header-bar>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-title *ngIf="!isEditing()">Eintrag erstellen</ion-title>
+    <ion-title *ngIf="isEditing()">Eintrag bearbeiten</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formControls" (ngSubmit)="createBlackboardPost()">
+    <ion-list radio-group>
+      <ion-item [class.error]="!title.valid && title.touched">
+        <ion-label fixed>Titel</ion-label>
+        <ion-input [formControl]="title" type="text" placeholder="Titel des Beitrags"></ion-input>
+      </ion-item>
+      <div *ngIf="title.hasError('required') && title.touched" class="error-box">* Der Titel ist erforderlich!</div>
+
+      <ion-item [class.error]="!content.valid && content.touched">
+        <ion-label>Beschreibung</ion-label>
+        <ion-textarea [formControl]="content" rows="6" placeholder="Beschreiben Sie hier, worum es geht"></ion-textarea>
+      </ion-item>
+      <div *ngIf="content.hasError('required') && content.touched" class="error-box">* Die Bescheibung ist erforderlich!</div>
+
+      <ion-item>
+        <ion-label fixed>Link</ion-label>
+        <ion-input [formControl]="link" type="text" placeholder="Externen Link hinzufügen"></ion-input>
+      </ion-item>
+
+      <!-- <ion-item>
+      <ion-label fixed>Ablaufdatum (optional)</ion-label>
+      <ion-input [(ngModel)]="validUntil" type="date" value="" placeholder="Zeitpunkt zu dem ihr Beitrag wieder gelöscht wird"></ion-input>
+    </ion-item> -->
+    </ion-list>
+  </form>
+  <ion-list>
+    <ion-item>
+      <div>
+        <ion-buttons>
+          <button *ngIf="!platform.is('core')" ion-button icon-only item-right icon-left (click)="accessGallery()">
+          <ion-icon name="image"></ion-icon>
+        </button>
+          <button *ngIf="!platform.is('core')" ion-button icon-only item-right icon-left (click)="accessCamera()">
+          <ion-icon name="camera"></ion-icon>
+        </button>
+          <button *ngIf="image" ion-button icon-only item-right icon-left (click)="removeImage()">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+        </ion-buttons>
+      </div>
+      <div><img *ngIf="image"  #image src="{{image}}" (click)="openPhoto(image)"
+        /></div>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar position="bottom" [sonia-custom-toolbar]="pageData">
+    <ion-buttons>
+      <button ion-button icon-left (click)="exitView()">
+                <ion-icon name="close"></ion-icon>
+                Abbrechen
+            </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button *ngIf="isEditing()" ion-button icon-left item-right color="primary" (click)="delete(post)" clear>
+                      <ion-icon name="trash"></ion-icon>
+                      <div>Löschen</div>
+                  </button>
+      <button ion-button icon-left type="submit" [disabled]="!formControls.valid" (click)="createBlackboardPost()">
+                <ion-icon name="checkmark"></ion-icon>
+                Absenden
+            </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

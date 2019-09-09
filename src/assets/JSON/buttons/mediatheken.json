@@ -1,0 +1,23 @@
+{
+    "launcherSWR": {
+        "_comment": "SWR Mediathek",
+        "type": "custom-icon-swr",
+        "id": "",
+        "icon": "",
+        "name": "SWR Mediathek"
+    },
+    "launcherARD": {
+        "_comment": "ARD Mediathek",
+        "type": "",
+        "id": "",
+        "icon": "film",
+        "name": "ARD Mediathek"
+    },
+    "launcherZDF": {
+        "_comment": "ZDF Mediathek",
+        "type": "",
+        "id": "",
+        "icon": "film",
+        "name": "ZDF Mediathek"
+    }
+}

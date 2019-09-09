@@ -1,0 +1,32 @@
+sonia-info-table {
+  width: 100%;
+  td,
+  th {
+    padding: 8px 8px 8px 0;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    color: color($sonia-colors, textLighter);
+    font-weight: normal;
+    width: 100px;
+  }
+  .sub {
+    color: color($sonia-colors, textLighter);
+    font-style: italic;
+  }
+  ion-card-content>& {
+    tr:first-child {
+      td,
+      th {
+        padding-top: 0;
+      }
+    }
+    tr:last-child {
+      td,
+      th {
+        padding-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "radio":{
+    "_comment": "Kamera",
+    "type": "",
+    "id": "",
+    "icon": "mic",
+    "name": "Radio"
+  },
+  "timetable":{
+    "_comment": "Fahrpläne",
+    "type": "",
+    "id": "",
+    "icon": "train",
+    "name": "Fahrpläne"
+  },
+  "newspaper": {
+    "_comment": "Zeitung",
+    "type": "",
+    "id": "",
+    "icon": "paper",
+    "name": "Zeitung"
+  }
+}

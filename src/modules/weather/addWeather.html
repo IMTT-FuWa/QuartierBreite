@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Wetter hinzufügen</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-right color="royal" (click)="dismiss()">
+        Abbrechen
+      <ion-icon name="close-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Stadt</ion-label>
+      <ion-input type="text" [(ngModel)]="data.city"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Land</ion-label>
+      <ion-select [(ngModel)]="data.country">
+        <ion-option value="de">Deutschland</ion-option>
+        <ion-option value="ch">Schweiz</ion-option>
+        <ion-option value="a">Österreich</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button ion-button block type="submit" (click)="dismiss(data)">Wetter hinzufügen</button>
+  </div>
+</ion-content>

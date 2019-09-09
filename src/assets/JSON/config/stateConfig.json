@@ -1,0 +1,777 @@
+{
+  "home": {
+    "pageData": {
+      "pageColor": "defaultColor",
+      "titleColor": "titleColor",
+      "pageTitle": "Quartier Breite"
+    },
+    "children": {
+      "communication": {
+        "pageData": {
+          "pageTitle": "Kommunikation",
+          "pageColor": "communicationColor",
+          "titleColor": "titleColor"
+        },
+        "children": {
+          "chat": {
+            "module": "ChatOverviewModule",
+            "pageData": {
+              "pageTitle": "Briefkasten",
+              "pageColor": "communicationColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToNewsStream": true,
+              "exposeToWebApp": true,
+              "exposeToIOS": true,
+              "exposeToANDROID": true
+            }
+          },
+          "launcherSkype": {
+            "module": "LauncherSkype",
+            "pageData": {
+              "pageTitle": "",
+              "pageColor": "communicationColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToIOS": false,
+              "exposeToANDROID": false
+            }
+          },
+          "launcherEmail": {
+            "module": "LauncherEmail",
+            "pageData": {
+              "pageTitle": "",
+              "pageColor": "communicationColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToIOS": false,
+              "exposeToANDROID": false
+            }
+          },
+          "launcherAddressbook": {
+            "module": "LauncherAddressbook",
+            "pageData": {
+              "pageTitle": "",
+              "pageColor": "communicationColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToIOS": false,
+              "exposeToANDROID": false
+            }
+          },
+          "emergencyContacts": {
+            "module": "Contact",
+            "pageData": {
+              "pageTitle": "Quartierskontakte",
+              "pageColor": "communicationColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToWebApp": true,
+              "exposeToIOS": true,
+              "exposeToANDROID": true
+            }
+          },
+          "emergencyEmail": {
+            "module": "LaunchEmergencyEmail",
+            "pageData": {
+              "pageTitle": "",
+              "pageColor": "communicationColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToIOS": false,
+              "exposeToANDROID": false
+            }
+          },
+          "socialStationEmail": {
+            "module": "LaunchSocialStationEmail",
+            "pageData": {
+              "pageTitle": "",
+              "pageColor": "communicationColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToIOS": false,
+              "exposeToANDROID": false
+            }
+          }
+        }
+      },
+      "noticeBoard": {
+        "pageData": {
+          "pageTitle": "Wir auf der Breite",
+          "pageColor": "noticeBoardColor",
+          "titleColor": "titleColor"
+        },
+        "children": {
+          "calender": {
+            "module": "Calendar",
+            "pageData": {
+              "pageTitle": "Quartierskalender",
+              "pageColor": "noticeBoardColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToNewsStream": true,
+              "exposeToWebApp": true,
+              "exposeToIOS": true,
+              "exposeToANDROID": true
+            }
+          },
+          "resourcecalendar": {
+            "module": "ResourceCalendar",
+            "pageData": {
+              "pageTitle": "Buchungskalender",
+              "pageColor": "noticeBoardColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToNewsStream": false,
+              "exposeToWebApp": false,
+              "exposeToIOS": false,
+              "exposeToANDROID": false
+            }
+          },
+          "weather": {
+            "module": "Weather",
+            "pageData": {
+              "pageTitle": "Wetter",
+              "pageColor": "noticeBoardColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToWebApp": false,
+              "exposeToIOS": false,
+              "exposeToANDROID": false
+            }
+          },
+          "blackboard": {
+            "module": "BlackboardList",
+            "pageData": {
+              "pageTitle": "Schwarze Bretter",
+              "pageColor": "noticeBoardColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToNewsStream": true,
+              "exposeToWebApp": true,
+              "exposeToIOS": true,
+              "exposeToANDROID": true
+            }
+          },
+          "launcherPlaner": {
+            "module": "LauncherPlaner",
+            "pageData": {
+              "pageTitle": "",
+              "pageColor": "noticeBoardColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToIOS": false,
+              "exposeToANDROID": false
+            }
+          }
+        }
+      },
+      "entertainment": {
+        "pageData": {
+          "pageTitle": "Unterhaltung",
+          "pageColor": "entertainmentColor",
+          "titleColor": "titleColor",
+          "hideFromWebApp": true,
+          "hideFromANDROID": true,
+          "hideFromIOS": true
+        },
+        "moduleData": {
+          "exposeToIOS": true,
+          "exposeToANDROID": true
+        },
+        "children": {
+          "games": {
+            "pageData": {
+              "pageTitle": "Spielen",
+              "pageColor": "entertainmentColor",
+              "titleColor": "titleColor",
+              "hideFromIOS": true
+            },
+            "moduleData": {
+              "exposeToANDROID": true
+            },
+            "children": {
+              "launcherSolitaer": {
+                "module": "LauncherSolitaer",
+                "pageData": {
+                  "pageTitle": "Solitär",
+                  "pageColor": "entertainmentColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToANDROID": true
+                }
+              },
+              "launcherSudoko": {
+                "module": "LauncherSudoko",
+                "pageData": {
+                  "pageTitle": "Sudoko",
+                  "pageColor": "entertainmentColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToANDROID": true
+                }
+              },
+              "launcherAnagramm": {
+                "module": "LauncherAnagramm",
+                "pageData": {
+                  "pageTitle": "Anagramm",
+                  "pageColor": "entertainmentColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToANDROID": true
+                }
+              },
+              "launcherQuizduell": {
+                "module": "LauncherQuizduell",
+                "pageData": {
+                  "pageTitle": "Quizduell",
+                  "pageColor": "entertainmentColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToANDROID": true
+                }
+              },
+              "launcherMahjong": {
+                "module": "LauncherMahjong",
+                "pageData": {
+                  "pageTitle": "Mahjong",
+                  "pageColor": "entertainmentColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToANDROID": true
+                }
+              },
+              "launcherGedaechnistraining": {
+                "module": "LauncherGedaechnistraining",
+                "pageData": {
+                  "pageTitle": "Gedächnistraining",
+                  "pageColor": "entertainmentColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToANDROID": true
+                }
+              }
+            }
+          },
+          "videos": {
+            "pageData": {
+              "pageTitle": "Video",
+              "pageColor": "entertainmentColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToIOS": true,
+              "exposeToANDROID": true
+            },
+            "children": {
+              "launcherYoutube": {
+                "module": "LauncherYoutube",
+                "pageData": {
+                  "pageTitle": "Youtube",
+                  "pageColor": "entertainmentColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                }
+              },
+              "launcherYounow": {
+                "module": "LauncherYounow",
+                "pageData": {
+                  "pageTitle": "Younow",
+                  "pageColor": "entertainmentColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                }
+              }
+            }
+          },
+          "foto": {
+            "pageData": {
+              "pageTitle": "Kamera",
+              "pageColor": "entertainmentColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToIOS": true,
+              "exposeToANDROID": true
+            },
+            "children": {
+              "launcherTakepicture": {
+                "module": "LauncherTakepicture",
+                "pageData": {
+                  "pageTitle": "",
+                  "pageColor": "entertainmentColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                }
+              },
+              "launcherAldiFotobuch": {
+                "module": "LauncherAldiFotobuch",
+                "pageData": {
+                  "pageTitle": "",
+                  "pageColor": "entertainmentColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                }
+              },
+              "launcherCewefotobook": {
+                "module": "LauncherCewefotobook",
+                "pageData": {
+                  "pageTitle": "",
+                  "pageColor": "entertainmentColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                }
+              }
+            }
+          },
+          "library": {
+            "pageData": {
+              "pageTitle": "Lesen & Hören",
+              "pageColor": "entertainmentColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToIOS": true,
+              "exposeToANDROID": true
+            },
+            "children": {
+              "buecherei": {
+                "module": "ExternalBrowser",
+                "moduleData": {
+                  "externalUrl": "http://www.bibliotheken-schaffhausen.ch/",
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                },
+                "pageData": {
+                  "pageTitle": "Bücherei",
+                  "pageColor": "entertainmentColor",
+                  "titleColor": "titleColor"
+                }
+              },
+              "launcherDbuecherei": {
+                "module": "LauncherDbuecherei",
+                "pageData": {
+                  "pageTitle": "digitale Bücherei",
+                  "pageColor": "entertainmentColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                }
+              },
+              "launcherEbook": {
+                "module": "LauncherEbook",
+                "pageData": {
+                  "pageTitle": "",
+                  "pageColor": "entertainmentColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                }
+              },
+              "audiobook": {
+                "pageData": {
+                  "pageTitle": "Hörbücher",
+                  "pageColor": "entertainmentColor",
+                  "titleColor": "titleColor",
+                  "hideFromIOS": true
+                },
+                "moduleData": {
+                  "exposeToANDROID": true
+                },
+                "children": {
+                  "launcherLibrivox": {
+                    "module": "LauncherLibrivox",
+                    "pageData": {
+                      "pageTitle": "",
+                      "pageColor": "entertainmentColor",
+                      "titleColor": "titleColor"
+                    },
+                    "moduleData": {
+                      "exposeToIOS": true,
+                      "exposeToANDROID": true
+                    }
+                  },
+                  "launcherAudible": {
+                    "module": "LauncherAudible",
+                    "pageData": {
+                      "pageTitle": "",
+                      "pageColor": "entertainmentColor",
+                      "titleColor": "titleColor"
+                    },
+                    "moduleData": {
+                      "exposeToIOS": true,
+                      "exposeToANDROID": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "mediatheken": {
+            "pageData": {
+              "pageTitle": "Mediatheken",
+              "pageColor": "entertainmentColor",
+              "titleColor": "titleColor",
+              "hideFromIOS": true
+            },
+            "moduleData": {
+              "exposeToANDROID": true
+            },
+            "children": {
+              "launcherARD": {
+                "module": "LauncherARD",
+                "pageData": {
+                  "pageTitle": "",
+                  "pageColor": "entertainmentColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                }
+              },
+              "launcherSWR": {
+                "module": "LauncherSWR",
+                "pageData": {
+                  "pageTitle": "",
+                  "pageColor": "serviceColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                }
+              },
+              "launcherZDF": {
+                "module": "LauncherZDF",
+                "pageData": {
+                  "pageTitle": "",
+                  "pageColor": "serviceColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "service": {
+        "pageData": {
+          "pageTitle": "Aktuell",
+          "pageColor": "serviceColor",
+          "titleColor": "titleColor",
+          "hideFromWebApp": true,
+          "hideFromANDROID": true,
+          "hideFromIOS": true
+        },
+        "moduleData": {
+          "exposeToIOS": true,
+          "exposeToANDROID": true
+        },
+        "children": {
+          "timetable": {
+            "pageData": {
+              "pageTitle": "Bahn",
+              "pageColor": "serviceColor",
+              "titleColor": "titleColor",
+              "hideFromWebApp": true,
+              "hideFromIOS": true
+            },
+            "moduleData": {
+              "exposeToANDROID": true
+            },
+            "children": {
+              "launcherOeffi": {
+                "module": "LauncherOeffi",
+                "pageData": {
+                  "pageTitle": "",
+                  "pageColor": "serviceColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                }
+              },
+              "launcherDBahn": {
+                "module": "LauncherDBahn",
+                "pageData": {
+                  "pageTitle": "",
+                  "pageColor": "serviceColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                }
+              }
+            }
+          },
+          "radio": {
+            "pageData": {
+              "pageTitle": "Radio",
+              "pageColor": "serviceColor",
+              "titleColor": "titleColor",
+              "hideFromWebApp": true,
+              "hideFromIOS": true
+            },
+            "moduleData": {
+              "exposeToANDROID": true
+            },
+            "children": {
+              "launcherDfunk": {
+                "module": "LauncherDfunk",
+                "pageData": {
+                  "pageTitle": " Deutschlandfunk",
+                  "pageColor": "serviceColor",
+                  "titleColor": "titleColor"
+                },
+                "moduleData": {
+                  "exposeToANDROID": true
+                }
+              }
+            }
+          },
+          "newspaper": {
+            "pageData": {
+              "pageTitle": "Zeitung",
+              "pageColor": "serviceColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToIOS": true,
+              "exposeToANDROID": true
+            },
+            "children": {
+              "tb": {
+                "module": "RssFeed",
+                "moduleData": {
+                  "rssUrl": "https://www.teckbote.de/feed/34-kirchheim-und-umland.xml",
+                  "exposeToWebApp": true,
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                },
+                "pageData": {
+                  "pageTitle": "Teckbote",
+                  "pageColor": "serviceColor",
+                  "titleColor": "titleColor"
+                }
+              },
+              "ez": {
+                "module": "RssFeed",
+                "moduleData": {
+                  "rssUrl": "https://www.esslinger-zeitung.de/feed/27-startseite-teaser-feed.xml",
+                  "exposeToWebApp": true,
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                },
+                "pageData": {
+                  "pageTitle": "Esslinger Zeitung",
+                  "pageColor": "serviceColor",
+                  "titleColor": "titleColor"
+                }
+              },
+              "stz": {
+                "module": "RssFeed",
+                "moduleData": {
+                  "rssUrl": "https://www.stuttgarter-zeitung.de/rss/topthemen.rss.feed",
+                  "exposeToWebApp": true,
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                },
+                "pageData": {
+                  "pageTitle": "Stuttgarter Zeitung",
+                  "pageColor": "serviceColor",
+                  "titleColor": "titleColor"
+                }
+              },
+              "taz": {
+                "module": "RssFeed",
+                "moduleData": {
+                  "rssUrl": "https://www.taz.de/!p4608/rss.xml",
+                  "exposeToWebApp": true,
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                },
+                "pageData": {
+                  "pageTitle": "Tageszeitung",
+                  "pageColor": "serviceColor",
+                  "titleColor": "titleColor"
+                }
+              },
+              "faz": {
+                "module": "RssFeed",
+                "moduleData": {
+                  "rssUrl": "https://www.faz.net/rss/aktuell/",
+                  "exposeToWebApp": true,
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                },
+                "pageData": {
+                  "pageTitle": "Frankfurter Allgemeine",
+                  "pageColor": "serviceColor",
+                  "titleColor": "titleColor"
+                }
+              },
+              "sz": {
+                "module": "RssFeed",
+                "moduleData": {
+                  "rssUrl": "https://rss.sueddeutsche.de/rss/Topthemen",
+                  "exposeToWebApp": true,
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                },
+                "pageData": {
+                  "pageTitle": "Süddeutsche Zeitung",
+                  "pageColor": "serviceColor",
+                  "titleColor": "titleColor"
+                }
+              },
+              "so": {
+                "module": "RssFeed",
+                "moduleData": {
+                  "rssUrl": "https://www.spiegel.de/schlagzeilen/tops/index.rss",
+                  "exposeToWebApp": true,
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                },
+                "pageData": {
+                  "pageTitle": "Spiegel Online",
+                  "pageColor": "serviceColor",
+                  "titleColor": "titleColor"
+                }
+              },
+              "fo": {
+                "module": "RssFeed",
+                "moduleData": {
+                  "rssUrl": "https://rss.focus.de/fol/XML/rss_folnews.xml",
+                  "exposeToWebApp": true,
+                  "exposeToIOS": true,
+                  "exposeToANDROID": true
+                },
+                "pageData": {
+                  "pageTitle": "FOCUS Online",
+                  "pageColor": "serviceColor",
+                  "titleColor": "titleColor"
+                }
+              }
+            }
+          }
+        }
+      },
+      "personal": {
+        "pageData": {
+          "pageTitle": "Persönliches",
+          "pageColor": "personalColor",
+          "titleColor": "titleColor",
+          "hideFromWebApp": true,
+          "hideFromANDROID": true,
+          "hideFromIOS": true
+        },
+        "moduleData": {
+          "exposeToIOS": true,
+          "exposeToANDROID": true
+        },
+        "children": {
+          "launcherEigeneDateien": {
+            "module": "LauncherEigeneDateien",
+            "pageData": {
+              "pageTitle": "Eigene Dateien",
+              "pageColor": "personalColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToANDROID": true
+            }
+          },
+          "launcherGalery": {
+            "module": "LauncherGalery",
+            "pageData": {
+              "pageTitle": "Foto Galerie",
+              "pageColor": "personalColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToIOS": true,
+              "exposeToANDROID": true
+            }
+          },
+          "launcherMusic": {
+            "module": "LauncherMusic",
+            "pageData": {
+              "pageTitle": "Musik",
+              "pageColor": "personalColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToIOS": true,
+              "exposeToANDROID": true
+            }
+          },
+          "launcherDeviceCalendar": {
+            "module": "LauncherDeviceCalendar",
+            "pageData": {
+              "pageTitle": "Gerätekalender",
+              "pageColor": "personalColor",
+              "titleColor": "titleColor"
+            },
+            "moduleData": {
+              "exposeToIOS": true,
+              "exposeToANDROID": true
+            }
+          }
+        }
+      },
+      "moenchweilerLogo": {
+        "module": "ExternalBrowser",
+        "moduleData": {
+          "externalUrl": "http://www.qvbreite.ch/",
+          "exposeToWebApp": true,
+          "exposeToIOS": true,
+          "exposeToANDROID": true
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,34 @@
+// http://ionicframework.com/docs/v2/theming/
+// Global CSS
+// --------------------------------------------------
+// Put CSS rules here that you want to apply globally.
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+//
+// App Shared Sass variables belong in app.variables.scss.
+// @import './shared-components/sonianetz.variables';
+@import './shared-components/sonianetz.common';
+@import './sonianetz.buttons';
+@import './shared-components/sonianetz.newsstream';
+@import './shared-components/schedule';
+@import './shared-components/item-row';
+@import './shared-components/overview-button';
+@import './shared-components/sonia-card';
+@import './shared-components/sonia-custom-card';
+@import './shared-components/sonia-custom-navbar';
+@import './shared-components/sonia-custom-tabs';
+@import './shared-components/sonia-custom-toolbar';
+@import './shared-components/sonia-info-card';
+@import './shared-components/sonia-info-table';
+@import './shared-components/sonia-no-entries-warning';
+@import './shared-components/sonia-online-loading-indicator-large';
+@import './shared-components/sonia-online-loading-indicator';
+@import './shared-components/sonia-sub-header-bar';
+@import './shared-components/sonia-tabs';
+// @import './shared-components/sonia-tabs';
+// @import 'ionic.ios';
+// @import 'ionic.md';
+// @import "ionic.wp";
+

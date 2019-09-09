@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nutzer hinzufügen</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-right color="royal" (click)="dismiss()">
+        Abbrechen
+        <ion-icon name="close-circle"></ion-icon>
+      </button>
+      <button ion-button icon-right color="royal" (click)="submit(user)">
+        Ok
+        <ion-icon name="checkmark-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <ion-item>
+    <ion-label stacked>Rolle</ion-label>
+    <ion-select [(ngModel)]="role">
+      <ion-option value="ADD_ADMIN">Administrator</ion-option>
+      <ion-option value="ADD_MODERATOR">Moderator</ion-option>
+      <ion-option value="ADD_EDITOR">Redakteur</ion-option>
+      <ion-option value="ADD_SUBSCRIBER">Abonnent</ion-option>
+    </ion-select>
+  </ion-item>
+  <p>Nutzer wählen</p>
+  <ion-list>
+    <button ion-item *ngFor="let user of users" (click)="addUser(user)">
+            <div>{{ user.firstname }} {{ user.lastname }}</div>
+        </button>
+  </ion-list> -->
+
+
+  <p>Nutzer wählen</p>
+  <ion-searchbar (ionInput)="searchUsers($event)"></ion-searchbar>
+  <ion-list *ngFor="let user of users">
+    <ion-label>{{ user.firstname }} {{ user.lastname }}</ion-label>
+    <ion-list radio-group [(ngModel)]="user.role">
+      <ion-item>
+        <ion-label>Administrator</ion-label>
+        <ion-radio checked="false" value="ADD_ADMIN"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Moderator</ion-label>
+        <ion-radio checked="false" value="ADD_MODERATOR"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Redakteur</ion-label>
+        <ion-radio checked="false" value="ADD_EDITOR"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Abonnent</ion-label>
+        <ion-radio checked="false" value="ADD_SUBSCRIBER"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,16 @@
+{
+  "launcherLibrivox":{
+    "_comment": "LibriVox Hörbücher",
+    "type": "",
+    "id": "",
+    "icon": "microphone",
+    "name": "LibriVox Hörbücher"
+  },
+  "launcherAudible":{
+    "_comment": "ALDI Fotobuch",
+    "type": "",
+    "id": "",
+    "icon": "book",
+    "name": "Audible"
+  }
+}

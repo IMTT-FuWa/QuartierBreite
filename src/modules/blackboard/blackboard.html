@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData" [isHome]="false"></sonia-header-bar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <sonia-online-loading-indicator-large [loading]="loadingData"></sonia-online-loading-indicator-large>
+
+  <ion-card *ngFor="let post of posts" class="sonia-card" [sonia-custom-card]="pageData">
+    <ion-card-header (click)="goToDetail(post)">
+      <ion-card-title [innerHTML]="post.title | linkify"></ion-card-title>
+    </ion-card-header>
+    <ion-card-content (click)="goToDetail(post)" [innerHTML]="post.content | linkify | maxWordCount: 25">
+    </ion-card-content>
+    <ion-item class="sonia-card-footer">
+      <ion-note item-left>
+        {{post.author}}, {{post.timestamp | momentDate:"mediumDate" }}
+      </ion-note>
+      <button *ngIf="isUserOfPost(post) || hasModRights()" ion-button icon-left item-right color="primary" (click)="delete(post)"
+        clear>
+        <ion-icon name="trash"></ion-icon>
+        <div *ngIf="!platform.is('mobile') || platform.isLandscape()">Löschen</div>
+      </button>
+      <button *ngIf="isUserOfPost(post) || hasModRights()" ion-button icon-left item-right color="primary" (click)="edit(post)"
+        clear>
+        <ion-icon name="create"></ion-icon>
+        <div *ngIf="!this.platform.is('mobile') || platform.isLandscape()">Bearbeiten</div>
+      </button>
+    </ion-item>
+  </ion-card>
+
+  <sonia-no-entries-warning [show]="(!posts || !posts.length) && !loadingData">
+  </sonia-no-entries-warning>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar position="bottom" [sonia-custom-toolbar]="pageData">
+    <ion-buttons>
+      <button ion-button icon-left (click)="backToIndex()">
+        <ion-icon name="arrow-back"></ion-icon>
+        Übersicht
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-left (click)="goToUsers()">
+        <ion-icon name="people"></ion-icon>
+        <div *ngIf="!platform.is('mobile') || platform.isLandscape()">Mitglieder</div>
+      </button>
+      <button *ngIf="hasModRights() || hasWriteRights()" ion-button icon-left (click)="goToCreate()">
+        <ion-icon name="add-circle"></ion-icon>
+        <div *ngIf="!platform.is('mobile') || platform.isLandscape()">Eintrag Erstellen</div>
+      </button>
+      <button ion-button icon-left (click)="goToBlackboardDesc()">
+        <ion-icon name="information-circle"></ion-icon>
+        <div *ngIf="!platform.is('mobile') || platform.isLandscape()">Beschreibung</div>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

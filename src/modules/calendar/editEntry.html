@@ -1,0 +1,160 @@
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData" [needsConfirmToLeave]="needsConfirmToLeave" (leaveViewEmitter)="leaveView()" [isHome]="false"></sonia-header-bar>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-title>{{isEditing ? "Termin Bearbeiten" : "Neuer Termin"}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formControls" (ngSubmit)="onSubmit()">
+    <ion-item-group>
+      <ion-item [class.error]="!title.valid && title.touched">
+        <ion-label stacked>Titel*</ion-label>
+        <ion-input type="text" placeholder="" [formControl]="formControls.controls['title']" maxlength="80"></ion-input>
+      </ion-item>
+      <div *ngIf="title.hasError('required') && title.touched" class="error-box">* Der Titel ist erforderlich und darf maximal 80 Zeichen haben!</div>
+
+      <sonia-item-row>
+        <ion-item class="row-label" *ngIf="!entry.allDay">
+          <ion-label fixed>Start: </ion-label>
+        </ion-item>
+        <ion-item class="row-label" *ngIf="entry.allDay">
+          <ion-label fixed>Datum: </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="TT.MM.JJJJ" [formControl]="formControls.controls['startM']"></ion-input>
+          <!-- <ion-datetime displayFormat="DD.MM.YYYY" pickerFormat="DD.MM.YYYY" cancelText="Abbrechen" doneText="OK" [formControl]="formControls.controls['startM']">
+          </ion-datetime> -->
+        </ion-item>
+        <ion-item *ngIf="entry.allDay">
+          Ganztägiger Termin
+        </ion-item>
+        <ion-item class="inline-label" *ngIf="!entry.allDay && (!platform.is('mobile') || platform.isLandscape())">
+          um
+        </ion-item>
+        <ion-item *ngIf="!entry.allDay && (!platform.is('mobile') || platform.isLandscape())">
+          <ion-input type="text" placeholder="HH:MM" [formControl]="formControls.controls['startH']"></ion-input>
+          <!-- <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" cancelText="Abbrechen" doneText="OK" [formControl]="formControls.controls['start']">
+          </ion-datetime> -->
+        </ion-item>
+        <ion-item class="inline-label" *ngIf="!entry.allDay && (!platform.is('mobile') || platform.isLandscape())">
+          Uhr
+        </ion-item>
+      </sonia-item-row>
+      <sonia-item-row *ngIf="platform.is('mobile') && platform.isPortrait()">
+        <ion-item class="row-label" *ngIf="!entry.allDay">
+          um
+        </ion-item>
+        <ion-item *ngIf="!entry.allDay">
+          <ion-input type="text" placeholder="HH:MM" [formControl]="formControls.controls['startH']"></ion-input>
+        </ion-item>
+        <ion-item class="inline-label" *ngIf="!entry.allDay">
+          Uhr
+        </ion-item>
+      </sonia-item-row>
+      <sonia-item-row *ngIf="!entry.allDay">
+        <ion-item class="row-label">
+          <ion-label fixed>Ende: </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="TT.MM.JJJJ" [formControl]="formControls.controls['endM']"></ion-input>
+          <!-- <ion-datetime displayFormat="DD.MM.YYYY" pickerFormat="DD.MM.YYYY" cancelText="Abbrechen" doneText="OK" [formControl]="formControls.controls['end']">
+          </ion-datetime> -->
+        </ion-item>
+        <ion-item class="inline-label" *ngIf="!platform.is('mobile') || platform.isLandscape()">
+          um
+        </ion-item>
+        <ion-item *ngIf="!platform.is('mobile') || platform.isLandscape()" (click)="touchEndTime()">
+          <ion-input type="text" placeholder="HH:MM" [formControl]="formControls.controls['endH']"></ion-input>
+          <!-- <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" cancelText="Abbrechen" doneText="OK" [formControl]="formControls.controls['end']">
+          </ion-datetime> -->
+        </ion-item>
+        <ion-item class="inline-label" *ngIf="!platform.is('mobile') || platform.isLandscape()">
+          Uhr
+        </ion-item>
+      </sonia-item-row>
+      <sonia-item-row *ngIf="!entry.allDay && (platform.is('mobile') && platform.isPortrait())">
+        <ion-item class="row-label">
+          um
+        </ion-item>
+        <ion-item (click)="touchEndTime()">
+          <ion-input type="text" placeholder="HH:MM" [formControl]="formControls.controls['endH']"></ion-input>
+          <!-- <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" cancelText="Abbrechen" doneText="OK" [formControl]="formControls.controls['end']">
+          </ion-datetime> -->
+        </ion-item>
+        <ion-item class="inline-label">
+          Uhr
+        </ion-item>
+      </sonia-item-row>
+      <ion-item>
+        <ion-label fixed>Ganztägig</ion-label>
+        <ion-checkbox checked="false" [formControl]="formControls.controls['allDay']"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Wiederholen</ion-label>
+        <ion-checkbox checked="false" [formControl]="formControls.controls['recurse']"></ion-checkbox>
+      </ion-item>
+
+      <div class="sonia-inset-radio-group" radio-group [hidden]="!formControls.controls['recurse'].value" [formControl]="formControls.controls['recursionPattern']">
+
+        <ion-item>
+          <ion-label>Wöchentlich</ion-label>
+          <ion-radio value="week"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Jährlich</ion-label>
+          <ion-radio value="year"></ion-radio>
+        </ion-item>
+      </div>
+
+    </ion-item-group>
+
+    <ion-item-group>
+      <ion-item-divider light>Details</ion-item-divider>
+
+      <ion-item>
+        <ion-label stacked>Beschreibung</ion-label>
+        <ion-textarea type="text" rows="4" [formControl]="formControls.controls['description']"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Ort</ion-label>
+        <ion-input type="text" [formControl]="formControls.controls['location']"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Teilnehmer</ion-label>
+        <ion-select multiple="true" cancelText="Abbrechen" okText="OK" [formControl]="formControls.controls['participants']">
+          <!-- TODO: disable options if !option.editable -->
+          <ion-option *ngFor="let option of participantOptions" [value]="option.GGUID" [disabled]="!option.editable">{{option.displayname}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-item-group>
+  </form>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar position="bottom" [sonia-custom-toolbar]="pageData">
+    <ion-buttons>
+      <button ion-button icon-left (click)="exitView()">
+        <ion-icon name="close"></ion-icon>
+        Abbrechen
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-left [hidden]="!isEditing" (click)="onDelete()">
+        <ion-icon name="trash"></ion-icon>
+        Löschen
+      </button>
+      <button ion-button icon-left type="submit" [disabled]="!formControls.valid" (click)="onSubmit()">
+        <ion-icon name="checkmark"></ion-icon>
+        {{isEditing ? "Speichern" : "Erstellen"}}
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

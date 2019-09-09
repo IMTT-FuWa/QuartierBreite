@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar [sonia-custom-navbar]="pageData">
+        <sonia-header-bar [pageData]="pageData" [isHome]="false"></sonia-header-bar>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h2>Abonnenten</h2>
+    <ion-list>
+        <button ion-item *ngFor="let user of subs">
+            <div>{{ user.firstname }} {{ user.lastname }}</div>
+            <ion-icon *ngIf="hasModRights()" name="trash" item-right (click)="deletePermission(user)"></ion-icon>
+        </button>
+    </ion-list>
+    <h2>Redakteure</h2>
+    <ion-list>
+        <button ion-item *ngFor="let user of editors">
+            <div>{{ user.firstname }} {{ user.lastname }}</div>
+            <ion-icon *ngIf="hasModRights()" name="trash" item-right (click)="deletePermission(user)"></ion-icon>
+        </button>
+    </ion-list>
+    <h2>Admins</h2>
+    <ion-list>
+        <button ion-item *ngFor="let user of admins">
+            <div>{{ user.firstname }} {{ user.lastname }}</div>
+            <ion-icon *ngIf="hasModRights()" name="trash" item-right (click)="deletePermission(user)"></ion-icon>
+        </button>
+    </ion-list>
+    <h2>Moderatoren</h2>
+    <ion-list>
+        <button ion-item *ngFor="let user of mods">
+            <div>{{ user.firstname }} {{ user.lastname }}</div>
+            <ion-icon *ngIf="hasModRights()" name="trash" item-right (click)="deletePermission(user)"></ion-icon>
+        </button>
+    </ion-list>
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar position="bottom" [sonia-custom-toolbar]="pageData">
+        <ion-buttons>
+            <button ion-button icon-left (click)="goBack()">
+              <ion-icon name="arrow-back"></ion-icon>
+              Übersicht
+          </button>
+        </ion-buttons>
+        <ion-buttons end>
+            <button *ngIf="hasModRights()" ion-button icon-left (click)="openModal()">
+              <ion-icon name="add-circle"></ion-icon>
+              Nutzer Hinzufügen
+          </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

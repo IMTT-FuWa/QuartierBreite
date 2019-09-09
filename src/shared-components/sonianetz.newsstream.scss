@@ -1,0 +1,41 @@
+/**
+* news stream stuff... very basic for now, just to show composition
+**/
+
+.sonia-news-stream-section {
+  // display: block;
+  // padding: 20px 0;
+  // border-top: 2px solid green;
+  background-color: #ffffff;
+  ion-card-header {
+    background: color($colors, light);
+  }
+}
+
+.sonia-news-stream-entry {
+  display: block;
+  border-top: 1px solid #ccc;
+  cursor: pointer;
+  position: relative;
+  background-color: #ffffff;
+  .sonia-news-stream-title {
+    font-size: $h3-font-size;
+    margin-bottom: 4px;
+  }
+  .sonia-news-stream-entry-marker {
+    display: block;
+    background: white; // hide marker if pageColor can not be identified
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  ion-item {
+    background-color: #ffffff;
+  }
+  ion-icon {
+    color: color($sonia-colors, textLight);
+  }
+}
+

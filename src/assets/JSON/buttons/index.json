@@ -1,0 +1,55 @@
+{
+  "communication": {
+    "_comment": "Kommunikation",
+    "type": "indexBtn",
+    "id": "",
+    "icon": "chatboxes",
+    "name": "Kommunikation",
+    "color": "white",
+    "background-color": "#fab20b"
+  },
+  "entertainment": {
+    "_comment": "Unterhaltung",
+    "type": "indexBtn",
+    "id": "",
+    "icon": "cube",
+    "name": "Unterhaltung",
+    "color": "white",
+    "background-color": "#66c430"
+  },
+  "noticeBoard": {
+    "_comment": "Wir auf der Breite",
+    "type": "indexBtn",
+    "id": "",
+    "icon": "easel",
+    "name": "Wir auf der Breite",
+    "background-color": "#f1511b"
+  },
+  "service": {
+    "_comment": "Aktuell",
+    "type": "indexBtn",
+    "id": "",
+    "icon": "briefcase",
+    "name": "Aktuell",
+    "background-color": "#64b3d8"
+  },
+  "personal": {
+    "_comment": "Persönliches",
+    "type": "indexBtn",
+    "id": "",
+    "icon": "briefcase",
+    "name": "Persönliches",
+    "background-color": "#CBBB93"
+  },
+  "moenchweilerLogo": {
+    "_comment": "moenchweiler Logo",
+    "type": "indexBtn MainPageLogo",
+    "id": "",
+    "icon": "",
+    "background-image": "url(assets/images/schaffhausenLogo.png)",
+    "name": "",
+    "background-color": "#ffffff",
+    "background-size": "250px 150px",
+    "border": "1px solid #8F8E8E"
+  }
+}

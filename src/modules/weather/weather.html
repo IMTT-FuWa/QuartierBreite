@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData" [isHome]="false"></sonia-header-bar>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button ion-button icon-right color="royal" (click)="doAdd()">
+        Ort Hinzufügen
+  <ion-icon name="add-circle"></ion-icon>
+  </button>
+    </ion-buttons>
+    <ion-buttons right>
+      <div class="offline" *ngIf="!isOnline()">
+        <span><em>Sie sind Offline</em></span>
+      </div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <weather-forecast-directive *ngFor="let weather of weatherList" [weather]="weather" (viewMore)="viewForecast(weather)" (removeEvent)="removeItem(weather)"></weather-forecast-directive>
+  </ion-list>
+</ion-content>

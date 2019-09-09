@@ -1,0 +1,16 @@
+@import "./theme/sonianetz.variables";
+sonia-card {
+  background-color: #ffffff;
+  ion-card-header {
+    white-space: normal;
+  }
+  ion-card-title {
+    color: inherit;
+  }
+  .sonia-card-footer {
+    background: color($colors, light);
+    ion-note {
+      color: color($sonia-colors, textLighter);
+    }
+  }
+}

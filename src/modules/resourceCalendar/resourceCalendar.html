@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData" [isHome]="false"></sonia-header-bar>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-left (click)="showPrev()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{currentTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-right (click)="showNext()">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding class="no-top-padding">
+  <ion-list>
+    <ion-item *ngIf='!selectedResource' color="danger">
+      <p>Bitte wählen Sie einen Buchungskalender aus</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>Buchungskalender</ion-label>
+      <ion-select [(ngModel)]="selectedResource" (ionChange)="updateEntries()" okText="Auswählen" cancelText="Abbrechen">
+        <ion-option *ngFor="let resource of resources" [value]="resource.GGUID">{{resource.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <sonia-online-loading-indicator-large [loading]="loadingData"></sonia-online-loading-indicator-large>
+  <p-schedule [events]="entries" [header]="scheduleHeaderConfig" [height]="height" locale="de" [contentHeight]="100" [eventRender]="onEventRender"
+    (onDayClick)="onDayClick($event)" (onEventClick)="onEntryClick($event)" (window:resize)="onResize()">
+  </p-schedule>
+
+  <sonia-no-entries-warning [show]="!entries || !entries.length">
+  </sonia-no-entries-warning>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar position="bottom" [sonia-custom-toolbar]="pageData">
+    <ion-buttons left *ngIf="!platform.is('mobile') || platform.isLandscape()">
+      <!-- <label>Ansicht:</label> -->
+      <button ion-button icon-left (click)="dayView()">
+        Tag
+      </button>
+      <button ion-button (click)="onWeekClick()">
+        Woche
+      </button>
+      <button ion-button icon-left (click)="monthView()">
+        Monat
+      </button>
+    </ion-buttons>
+    <ion-buttons end *ngIf="!platform.is('mobile') || platform.isLandscape()">
+      <button ion-button icon-left (click)="showToday()">
+        Heute
+      </button>
+      <button ion-button icon-left (click)="gotoCreate()">
+        <ion-icon name="add-circle"></ion-icon>
+        Termin Erstellen
+      </button>
+    </ion-buttons>
+
+    <ion-buttons left *ngIf="platform.is('mobile') && platform.isPortrait()">
+      <!-- <label>Ansicht:</label> -->
+      <button ion-button icon-left (click)="dayView()">
+        T
+      </button>
+      <button ion-button (click)="onWeekClick()">
+        W
+      </button>
+      <button ion-button icon-left (click)="monthView()">
+        M
+      </button>
+    </ion-buttons>
+    <ion-buttons end *ngIf="platform.is('mobile') && platform.isPortrait()">
+      <button ion-button icon-left (click)="showToday()">
+        Heute
+      </button>
+      <button ion-button icon-only (click)="gotoCreate()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,112 @@
+/**
+* main overview buttons
+*
+* their properties can be extended/overwritten via JSON config, which
+* gets applied dynamicly for EACH button!
+* following are the default styles applied to each button.
+*
+* SAMPLE json config for a sub page oveview button
+*    "calender":{                                         --> NOTE: State key reflected in stateConfig json has to match!
+*      "_comment": "Kalender",
+*      "type": "indexBtn",                                --> additional classes
+*      "id": "",                                          --> specific id
+*      "icon": "calendar",                                --> ionicon name
+*      "name": "Kalender",                                --> title text
+*      "color": "white",                                  --> OVERWRITE
+*      "background-color": "#FF6600",                     --> OVERWRITE - default is pageData.pageColor!
+*      "font-size": "20px",                               --> OVERWRITE
+*      "background-size": "70px 70px",                    --> OVERWRITE
+*      "height": "130px",                                 --> OVERWRITE
+*      "width": "150px"                                   --> OVERWRITE
+*    }
+*
+* all standard css props are allowed and overwrite the following default styling
+* this way, each button can be styles individually via config JSON files
+**/
+
+
+/**********************************
+* ORIGINAL - Uncomment to restore
+
+.sonia-overview-buttons-container {
+    .sonia-overview-buttons-col {
+        text-align: center;
+    }
+}
+
+.sonia-overview-button {
+    display: inline-block;
+
+    //icon over text
+    .button-inner {
+        flex-direction: column;
+    }
+}
+
+.sonia-overview-buttons-col{
+
+  flex: 1 0;
+}
+.sonia-overview-buttons-row{
+  &:after {
+    content: "";
+    flex: auto;
+  }
+
+}
+.sonia-overview-button button {
+
+    //sub page buttons are the default styleing
+    padding-top: 15px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    line-height: 100%;
+    border: none;
+    white-space: normal;
+
+    color: white;
+    font-size: 20px;
+    background-size: 70px 70px;
+    height: 130px;
+    width: 150px;
+
+    &:active {
+      background-color: #5e5b57;
+    }
+
+    //index overview buttons extend sub page buttons
+    &.indexBtn {
+        font-size: 26px;
+        background-size: 200px 100px;
+        height: 200px;
+        width: 253px;
+    }
+}
+
+
+
+// BASE icon sizes
+.sonia-overview-button ion-icon {
+  font-size: 70px;
+  padding: 0 0 15px;
+}
+
+.sonia-overview-button .indexBtn ion-icon {
+  font-size: 100px;
+  padding-bottom: 20px;
+}
+
+* END - ORIGINAL - Uncomment to restore
+***********************************/
+
+
+/**********************************
+* NEW TEST - Comment to deactivate
+*/
+
+
+/*
+* END - NEW TEST - Comment to deactivate
+***********************************/
+

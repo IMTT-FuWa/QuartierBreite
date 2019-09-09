@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData" [isHome]="false"></sonia-header-bar>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-buttons left>
+      <ion-title>
+        <span *ngIf="ownUser">Angemeldet als {{ownUser}}</span>
+        <em class="title-small" *ngIf="!ownUser">Nicht angemeldet</em>
+      </ion-title>
+    </ion-buttons>
+    <ion-buttons right>
+      <div class="offline" *ngIf="!isOnline()">
+        <span>
+          <em>Sie sind Offline</em>
+        </span>
+      </div>
+    </ion-buttons>
+  </ion-toolbar>
+  <div padding>
+    <ion-segment [(ngModel)]="chatMode">
+      <ion-segment-button value="Einzelchat">
+        Einzelchat
+      </ion-segment-button>
+      <ion-segment-button value="Gruppenchat">
+        Gruppenchat
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+</ion-header>
+
+<ion-content padding>
+  <div [ngSwitch]="chatMode">
+    <ion-list *ngSwitchCase="'Einzelchat'">
+      <ion-searchbar placeholder="Benutzer suchen" (ionInput)="getUsers($event)"></ion-searchbar>
+      <sonia-online-loading-indicator-large [loading]="loadingData"></sonia-online-loading-indicator-large>
+      <ion-list text-wrap>
+        <ion-item *ngFor="let user of otherUsers" (click)="openChatWith(user.name)">
+          <ion-icon item-left name="person"></ion-icon>
+          <p item-right *ngIf="user.timestamp"> {{ user.timestamp | momentDate:"mediumDate2Timezone"}}, {{ user.timestamp | momentDate:"mediumTimeTimezone"}}</p>
+          <ion-icon name="arrow-forward" item-right></ion-icon>
+          <p *ngIf="platform.is('mobile') && platform.isPortrait()">
+            <b>{{ user.name }}</b>
+          </p>
+          <h2 *ngIf="!platform.is('mobile') || platform.isLandscape()">{{ user.name }}</h2>
+          <p style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" col-50>
+            {{ user.lastMsg }}
+          </p>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+    <ion-list *ngSwitchCase="'Gruppenchat'">
+      <!-- <ion-buttons end>
+            <button ion-button clear (click)="openModal()">Neue Chatgruppe</button>
+        </ion-buttons> -->
+      <ion-searchbar placeholder="Gruppen suchen" (ionInput)="searchGroups($event)"></ion-searchbar>
+      <sonia-online-loading-indicator-large [loading]="loadingData"></sonia-online-loading-indicator-large>
+      <ion-list text-wrap>
+        <ion-item *ngFor="let group of groups" (click)="openGroupChatWith(group)">
+          <ion-icon item-left name="people"></ion-icon>
+          <p item-right *ngIf="group.timestamp"> {{ group.timestamp | momentDate:"mediumDate2Timezone"}}, {{ group.timestamp | momentDate:"mediumTimeTimezone"}}</p>
+          <ion-icon name="arrow-forward" item-right></ion-icon>
+          <p *ngIf="platform.is('mobile') && platform.isPortrait()">
+            <b>{{ group.name }}</b>
+          </p>
+          <h2 *ngIf="!platform.is('mobile') || platform.isLandscape()">{{ group.name }}</h2>
+          <p *ngIf="group.lastMsg" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" col-50>
+            {{ group.lastMsg }}
+          </p>
+        </ion-item>
+      </ion-list>
+      <ion-fab right bottom>
+        <button ion-fab mini (click)="openModal()" color="communication">
+          <ion-icon name="add" color='homecolor'></ion-icon>
+        </button>
+      </ion-fab>
+    </ion-list>
+  </div>
+</ion-content>

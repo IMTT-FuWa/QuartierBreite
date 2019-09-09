@@ -1,0 +1,58 @@
+{
+    "tb": {
+        "_comment": "Teckbote",
+        "type": "custom-icon-tb",
+        "id": "",
+        "icon": "",
+        "name": "Teckbote"
+    },
+    "ez": {
+        "_comment": "Esslinger Zeitung",
+        "type": "custom-icon-ez",
+        "id": "",
+        "icon": "",
+        "name": "Esslinger Zeitung"
+    },
+    "stz": {
+        "_comment": "Stuttgarter Zeitung",
+        "type": "custom-icon-stz",
+        "id": "",
+        "icon": "",
+        "name": "Stuttgarter Zeitung"
+    },
+    "taz": {
+        "_comment": "TAZ",
+        "type": "custom-icon-taz",
+        "id": "",
+        "icon": "",
+        "name": "Tageszeitung"
+    },
+    "faz": {
+        "_comment": "FAZ",
+        "type": "custom-icon-faz",
+        "id": "",
+        "icon": "",
+        "name": "Frankfurter Allgemeine"
+    },
+    "sz": {
+        "_comment": "SZ",
+        "type": "custom-icon-sz",
+        "id": "",
+        "icon": "",
+        "name": "Süddeutsche Zeitung"
+    },
+    "so": {
+        "_comment": "SO",
+        "type": "custom-icon-so",
+        "id": "",
+        "icon": "",
+        "name": "Spiegel Online"
+    },
+    "fo": {
+        "_comment": "FO",
+        "type": "custom-icon-fo",
+        "id": "",
+        "icon": "",
+        "name": "FOCUS Online"
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "launcherEigeneDateien":{
+    "_comment": "Eigene Dateien",
+    "type": "",
+    "id": "",
+    "icon": "folder",
+    "name": "eigene Dateien"
+  },
+  "launcherGalery":{
+    "_comment": "Galerie",
+    "type": "",
+    "id": "",
+    "icon": "images",
+    "name": "Galerie"
+  },
+  "launcherMusic": {
+    "_comment": "Musik",
+    "type": "",
+    "id": "",
+    "icon": "musical-notes",
+    "name": "Musik"
+  },
+  "launcherDeviceCalendar": {
+    "_comment": "Gerätekalender",
+    "type": "",
+    "id": "",
+    "icon": "calendar",
+    "name": "Gerätekalender"
+  }
+}

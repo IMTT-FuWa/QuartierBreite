@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData"></sonia-header-bar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h4>
+    Entwickelt und Copyright von der Hochschule Furtwangen.
+    Gefördert im Projekt SoniaNetz durch das Ministerium für Arbeit
+    und Sozialordnung, Familie, Frauen und Senioren des Landes Baden-Württemberg.
+  </h4>
+  <ion-row wrap>
+    <ion-col>
+      <img (click)="openLink(linkHFU)" src="assets/images/logo-hfu.gif" />
+      <img (click)="openLink(linkGAW)" src="assets/images/logo_gaw_cmyk.png" />
+      <img (click)="openLink(linkKST)" src="assets/images/kstLogo_HKS.png" />
+      <img (click)="openLink(linkIAO)" src="assets/images/IAO_Logo.JPG" />
+      <img (click)="openLink(linkBW)" src="assets/images/BW.PNG" />
+    </ion-col>
+  </ion-row>
+
+  <ion-card>
+    <ion-card-header>
+      App Informationen:
+    </ion-card-header>
+    <ion-card-content>
+      <p>Appversion: {{versionNumber}}</p>
+      <p>Appname: {{appName}}</p>
+      <p>VersionCode: {{versionCode}}</p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

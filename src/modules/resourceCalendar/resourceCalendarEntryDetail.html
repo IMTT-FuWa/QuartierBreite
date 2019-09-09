@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData"></sonia-header-bar>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-title *ngIf="entry">{{entry.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="sonia-single-entry">
+
+  <div class="sonia-single-entry__header">
+    <ion-card class="sonia-info-card" *ngIf="entry">
+      <ion-card-content>
+        <table class="sonia-info-table">
+          <tr>
+            <th>Wann: </th>
+            <!-- 13px oben unten, links 8 -->
+            <td *ngIf="!entry.allDay">
+              <p>{{entry.start | momentDate:"mediumDate"}}, {{entry.start | momentDate:"mediumTime"}} Uhr
+                <span class="sub">&nbsp; bis</span>
+              </p>
+              <p>{{entry.end | momentDate:"mediumDate"}}, {{entry.end | momentDate:"mediumTime"}} Uhr</p>
+            </td>
+            <td *ngIf="entry.allDay">
+              <p>{{entry.start | momentDate:"mediumDate"}}</p>
+              <p>
+                <span class="sub">Ganztägig</span>
+              </p>
+            </td>
+          </tr>
+          <tr *ngIf="entry.recurse">
+            <th>Häufigkeit: </th>
+            <td>
+              <p>TODO ..recursionPattern</p>
+            </td>
+          </tr>
+          <tr *ngIf="entry.location">
+            <th>Wo: </th>
+            <td>
+              <p>{{entry.location}}</p>
+            </td>
+          </tr>
+        </table>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="sonia-single-entry__content">
+    <div *ngIf="entry">
+      <section>
+        <h5>Beschreibung:</h5>
+        <p *ngIf="entry.description">{{entry.description}}</p>
+        <p *ngIf="!entry.description">
+          <em>Keine Beschreibung</em>
+        </p>
+      </section>
+      <section>
+        <h5>Teilnehmer:</h5>
+        <ul *ngIf="entry.participants && entry.participants.length">
+          <li *ngFor="let participant of entry.participants">
+            {{participant.displayname}}
+          </li>
+        </ul>
+        <p *ngIf="!(entry.participants && entry.participants.length)">
+          <em>Keine weiteren Teilnehmer</em>
+        </p>
+      </section>
+      <section>
+        <h5>Buchungen:</h5>
+        <ul *ngIf="entry.resources && entry.resources.length">
+          <li *ngFor="let resource of entry.resources">
+            {{resource.displayname}}
+          </li>
+        </ul>
+        <p *ngIf="!(entry.resources && entry.resources.length)">
+          <em>Keine Buchungen</em>
+        </p>
+      </section>
+      <section>
+        <h5>Ersteller:</h5>
+        <ul>
+          <li *ngIf="isMyEntry()">
+            Sie selbst
+          </li>
+          <li *ngIf="!isMyEntry() && !adminIsClient()">
+            {{entry.klient.firstname}} {{entry.klient.lastname}}
+          </li>
+          <li *ngIf="adminIsClient()">
+            Administrator
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar position="bottom" [sonia-custom-toolbar]="pageData">
+    <ion-buttons>
+      <button ion-button icon-left (click)="goToList()">
+        <ion-icon name="arrow-back"></ion-icon>
+        Übersicht
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <!--   -->
+      <button *ngIf="isMyEntry()" ion-button icon-left (click)="gotoEdit()">
+        <ion-icon name="create"></ion-icon>
+        Bearbeiten
+      </button>
+      <button *ngIf="isMyEntry()" ion-button icon-left (click)="onDelete()">
+        <ion-icon name="trash"></ion-icon>
+        Löschen
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

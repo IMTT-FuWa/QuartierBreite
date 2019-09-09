@@ -1,0 +1,16 @@
+{
+  "launcherOeffi":{
+    "_comment": "Öffi - Fahrplanauskunft",
+    "type": "",
+    "id": "",
+    "icon": "time",
+    "name": "Öffi - Fahrplanauskunft"
+  },
+  "launcherDBahn":{
+    "_comment": "Deutsche Bahn",
+    "type": "",
+    "id": "",
+    "icon": "train",
+    "name": "Deutsche Bahn"
+  }
+}

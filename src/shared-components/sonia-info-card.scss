@@ -1,0 +1,10 @@
+sonia-info-card {
+  background: #fff;
+  margin: 0;
+  width: auto;
+  font-size: 1.6rem; // box-shadow: none;
+  ion-card-content,
+  p {
+    font-size: inherit;
+  }
+}

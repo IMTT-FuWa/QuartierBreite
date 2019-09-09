@@ -1,0 +1,30 @@
+{
+  "buecherei":{
+    "_comment": "Katalog Stadtbibliothek",
+    "type": "",
+    "id": "",
+    "icon": "bookmarks",
+    "name": "Katalog Stadtbibliothek"
+  },
+  "launcherDbuecherei":{
+    "_comment": "digitale Bücherei",
+    "type": "custom-icon-dbuecherei",
+    "id": "",
+    "icon": "",
+    "name": "digitale Bücherei"
+  },
+  "launcherEbook":{
+    "_comment": "E-Book",
+    "type": "",
+    "id": "",
+    "icon": "tablet-portrait",
+    "name": "E-Book"
+  },
+  "audiobook":{
+    "_comment": "Hörbücher",
+    "type": "",
+    "id": "",
+    "icon": "volume-up",
+    "name": "Hörbücher"
+  }
+}

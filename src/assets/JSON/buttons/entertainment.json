@@ -1,0 +1,36 @@
+{
+  "games": {
+    "_comment": "Spielen",
+    "type": "",
+    "id": "",
+    "icon": "football",
+    "name": "Spielen"
+  },
+  "videos": {
+    "_comment": "Video",
+    "type": "",
+    "id": "",
+    "icon": "videocam",
+    "name": "Video"
+  },
+  "foto": {
+    "type": "",
+    "id": "",
+    "icon": "camera",
+    "name": "Bilder"
+  },
+  "library": {
+    "_comment": "Lesen",
+    "type": "",
+    "id": "",
+    "icon": "book",
+    "name": "Lesen & Hören"
+  },
+  "mediatheken": {
+    "_comment": "Mediatheken",
+    "type": "",
+    "id": "",
+    "icon": "film",
+    "name": "Mediatheken"
+  }
+}

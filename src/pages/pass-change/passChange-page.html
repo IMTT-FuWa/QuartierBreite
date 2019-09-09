@@ -1,0 +1,41 @@
+<!-- Header and Footer area - must be present on every @Page -->
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData"></sonia-header-bar>
+  </ion-navbar>
+</ion-header>
+
+<!-- END: Header and Footer area -->
+
+<ion-content padding>
+
+  <form [formGroup]="passChangeForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item [class.error]="!currentPass.valid && currentPass.touched">
+        <ion-icon name="lock" item-left></ion-icon>
+        <ion-label stacked>Aktuelles Passwort</ion-label>
+        <ion-input type="password" id="currentPass" value="" class="form-control"  [formControl]="currentPass"></ion-input>
+      </ion-item>
+      <div *ngIf="currentPass.hasError('required') && currentPass.touched" class="error-box">* Das aktuelle Passwort ist erforderlich!</div>
+      <div *ngIf="currentPass.hasError('minlength') && currentPass.touched" class="error-box">* Die Mindestlänge des Passworts ist 4-Charakter!</div>
+      <ion-item [class.error]="!newPass.valid && newPass.touched">
+        <ion-icon name="lock" item-left></ion-icon>
+        <ion-label stacked>Neues Passwort</ion-label>
+        <ion-input type="password" id="newPass" class="form-control"  value="" [formControl]="newPass"></ion-input>
+      </ion-item>
+      <div *ngIf="newPass.hasError('required') && newPass.touched" class="error-box">* Das neu Passwort ist erforderlich!</div>
+      <div *ngIf="newPass.hasError('minlength') && newPass.touched" class="error-box">* Die Mindestlänge des Passworts ist 4-Charakter!</div>
+      <div *ngIf="passChangeForm.controls.newPass.errors?.MatchCurrentWithNewPassword && newPass.touched" class="error-box">* Aktuelles Passwort und neues Passwort stimmen nicht überein!</div>
+      <ion-item [class.error]="!confirmPass.valid && confirmPass.touched">
+        <ion-icon name="lock" item-left></ion-icon>
+        <ion-label stacked>Passwort wiederholen</ion-label>
+        <ion-input type="password" id="confirmPass" class="form-control" value="" [formControl]="confirmPass"></ion-input>
+      </ion-item>
+      <div *ngIf="confirmPass.hasError('required') && confirmPass.touched" class="error-box">* Die Bestätigung des neuen Passworts ist erforderlich!</div>
+      <div *ngIf="confirmPass.hasError('minlength') && confirmPass.touched" class="error-box">* Die Mindestlänge des Passworts ist 4-Charakter!</div>
+      <div *ngIf="passChangeForm.controls.confirmPass.errors?.MatchNewWithConfirmPassword && newPass.touched" class="error-box">* Neues Passwort stimmt mit der Passwortbestätigung nicht überein!</div>
+
+      <button ion-button type="submit" [disabled]="!passChangeForm.valid" block>Absenden</button>
+    </ion-list>
+  </form>
+</ion-content>

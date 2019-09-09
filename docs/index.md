@@ -1,0 +1,116 @@
+# Documentation
+
+- Installation and Setup
+    - Install following software and dependencies to run the project:        
+        - NodeJS (v8.11.3)
+        - NPM (6.1.0)
+        - Ionic Framework (ionic-angular 3.9.2)
+            - npm install -g ionic@3.9.2
+        - Cordova (Cordova CLI) : 8.0.0
+            - npm install -g cordova@8.0.0
+        - for more Information https://ionicframework.com/getting-started
+    - how to run development server / how to test on devices
+        - ionic serve (run the project localy)
+        - ionic cordova run [<platform>] [options]
+            - i.e. ionic cordova run android
+        - For more Information https://ionicframework.com/docs/cli/commands/cordova-run
+    - how to install new plugins, save them, and install them for different plattforms
+        - For more Information https://ionicframework.com/docs/native
+
+- App Specific Configuration
+    - the different config files and the possible properties / hierarchies
+        - assets/JSON/config
+            - appSettings.json 
+                - API EndPoint-URL to Nubedian Backend. For more Information contact https://nubedian.de/
+            - stateConfig.json
+                - hierarchy, possible buttons (visibility) and their module data
+            - colorConfig.json
+                - how colors get applied
+        - assets/JSON/buttons
+            - button configs, and how they are applied of each view
+    - Firebase Configuration in app/app.module.ts
+         - Add the Configuration from Firebase in the lines "const FIREBASE_CONFIG = {}"
+- Module System
+    - List of current modules 
+        - Kommunikation
+        - Wir auf der Breite
+        - Link to the Quartierverein Breite
+        - You can add/remove modules in stateConfig.json
+    - How to create new modules
+        - create modules in src/modules
+        - import the name of module in src/modules/index.ts
+    - App Launcher
+        - list of currently supported apps
+        - specific configuration for single apps
+    - Blackboard
+        - The view of Schwarze Bretter and data of it from Backend
+    - Calendar
+        - The view of Kalender and data of it from Backend
+    - Chat
+        - The view of Chats (Briefkasten) and data of it from Firebase. chat users are automatically registered from Nubedian backend
+    - Emergency Contact
+        - The view of emergency contact (Quartierskontakt) and data of it from Backend. The contact or Organisation should be checked as "Quartierskontakt" on Backend
+    - Emergency Email
+        - create a template of en emergency email
+    - Resource Calendar
+        - The view of the resource calendar and data of it from Backend (Booking calendar for i.e a room etc.)
+    - RSS Feed
+        - Get RSS Feed i.e Newspaper etc.
+    - Social Station Email
+        - create an email to Sozialstation
+    - Weather
+        - Show weather forecast data
+    - index.ts
+        - import and register all modules
+    - module-base.ts
+        - Base Class for @Page modules
+    - newsStreamComponent-base.ts
+        - NewsStreamComponentBase class
+- Pages
+    - custom bootstraping page and the view of overview page
+- Pipes
+    - some custom filters        
+- Providers
+    - App Launcher
+        - launch external Apps        
+    - AuthenticationService
+        - user authentication service
+    - cal-import-export
+        - import/Export calendar data
+    - ConnectivityService
+        - check the connectivity of the device
+    - DataService
+        - interfaces and dependencies (local storage and remote data service)
+        - local storage
+        - firebase-data-service
+            - loading data from local and remote storage
+        - usage from within pages/modules
+    - EmailComposer
+        - Create Email to send an emergency email
+    - Encryption Service
+        - Encrypt/Decrypt the Firebase data
+    - ImagesToFileSystem Service
+        - Save Images in file system
+    - InAppBrowser Service
+        - Open URLs in a new Browser page
+    - NewsStream Service
+        - register the Modules that should display their data in the newsstream "NEUES" tab
+        - shows the entries (5) of blackboards, chats and calendars
+        - Registration of modules
+        - module class interface (necessary methods)
+        - newsStream module templates in pages/news-stream-section-component.ts (and template options, i.e. sorting, number of entries of i.e blackboards, chats, calendars...)
+    - Remote Services
+        - REST calls of (Addresses (Clients), Appointments (Kalender), Blackboards (Schwarze Bretter) and Login from Nubedian Backend)
+        - Current approach
+            - single backend user to perform all careCM requests from the nubedian middleware
+            - API documentation (contact https://nubedian.de/)
+    - RSS Service
+        - Get Rss feeds
+    - Sonia-Config Service
+        - Main configuration service to create the app state, overview buttons etc.
+    - Weather Service
+        - Get current weather data
+
+    
+    
+

@@ -1,0 +1,40 @@
+<!-- Header and Footer area - must be present on every @Page -->
+<ion-header>
+    <ion-navbar [sonia-custom-navbar]="pageData">
+        <sonia-header-bar [pageData]="pageData" [isHome]="false"></sonia-header-bar>
+    </ion-navbar>
+</ion-header>
+
+
+<!--
+<ion-footer>
+<ion-toolbar>
+<sonia-sub-header-bar [pageData]="pageData"></sonia-sub-header-bar>
+</ion-toolbar>
+
+<ion-toolbar position="bottom" [sonia-toolbarBackgroundColor]="pageData.pageColor">
+<sonia-footer-bar [pageData]="pageData"></sonia-footer-bar>
+</ion-toolbar>
+</ion-footer>
+-->
+<!-- END: Header and Footer area -->
+
+<ion-content>
+    <ion-card *ngFor="let entry of entries" class="sonia-card" [sonia-custom-card]="pageData">
+        <ion-card-header>
+            <ion-card-title>{{entry.title}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            {{entry.description}}
+        </ion-card-content>
+        <ion-item class="sonia-card-footer">
+            <ion-note item-left>
+                {{entry.pubDate | momentDate:"mediumDate2Timezone" }}, {{entry.pubDate | momentDate:"mediumTimeTimezone" }}
+            </ion-note>
+            <button ion-button item-right (click)="browse(entry)" class="sonia-card-button">
+                <ion-icon name='share-alt'></ion-icon>
+                Lesen
+            </button>
+        </ion-item>
+    </ion-card>
+</ion-content>

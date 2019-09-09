@@ -1,0 +1,206 @@
+sonia-overview-buttons {
+  &:after {
+    content: "";
+    flex: auto;
+  }
+  .sonia-overview-buttons-row {
+    &:after {
+      content: "";
+      flex: auto;
+    }
+  }
+  .sonia-overview-buttons-col {
+    display: flex;
+    flex: 0 1 auto;
+    @media screen and (min-width: map-get($sonia-breakpoints, 'small')) {
+      flex: 0 1 50%;
+      max-width: 50%;
+    }
+    @media screen and (min-width: map-get($sonia-breakpoints, 'medium')) {
+      flex: 0 1 33.333333%;
+      max-width: 33.333333%;
+    }
+  }
+  /**
+    * icon customization
+    **/
+  /*Newspaper custom icons */
+  .custom-icon-tb {
+    position: relative;
+  }
+  .custom-icon-tb ion-icon::before {
+    content: 'TB';
+    font-size: 40px;
+    background-color: white;
+    padding: 2px 10px;
+    margin: 5px;
+    color: #64b3d8;
+    border-radius: 5px;
+  }
+  .custom-icon-ez {
+    position: relative;
+  }
+  .custom-icon-ez ion-icon::before {
+    content: 'EZ';
+    font-size: 40px;
+    background-color: white;
+    padding: 2px 10px;
+    margin: 5px;
+    color: #64b3d8;
+    border-radius: 5px;
+  }
+  .custom-icon-stz {
+    position: relative;
+  }
+  .custom-icon-stz ion-icon::before {
+    content: 'StZ';
+    font-size: 40px;
+    background-color: white;
+    padding: 2px 10px;
+    margin: 5px;
+    color: #64b3d8;
+    border-radius: 5px;
+  }
+  .custom-icon-taz {
+    position: relative;
+  }
+  .custom-icon-taz ion-icon::before {
+    content: 'TAZ';
+    font-size: 40px;
+    background-color: white;
+    padding: 2px 10px;
+    margin: 5px;
+    color: #64b3d8;
+    border-radius: 5px;
+  }
+  .custom-icon-faz {
+    position: relative;
+  }
+  .custom-icon-faz ion-icon::before {
+    content: 'FAZ';
+    font-size: 40px;
+    background-color: white;
+    padding: 2px 10px;
+    margin: 5px;
+    color: #64b3d8;
+    border-radius: 5px;
+  }
+  .custom-icon-sz {
+    position: relative;
+  }
+  .custom-icon-sz ion-icon::before {
+    content: 'SZ';
+    font-size: 40px;
+    background-color: white;
+    padding: 2px 10px;
+    margin: 5px;
+    color: #64b3d8;
+    border-radius: 5px;
+  }
+  .custom-icon-so {
+    position: relative;
+  }
+  .custom-icon-so ion-icon::before {
+    content: 'SO';
+    font-size: 40px;
+    background-color: white;
+    padding: 2px 10px;
+    margin: 5px;
+    color: #64b3d8;
+    border-radius: 5px;
+  }
+  .custom-icon-fo {
+    position: relative;
+  }
+  .custom-icon-fo ion-icon::before {
+    content: 'FOCUS';
+    font-size: 40px;
+    background-color: white;
+    padding: 2px 10px;
+    margin: 5px;
+    color: #64b3d8;
+    border-radius: 5px;
+  }
+  /*End of Newspaper custom icons */
+  /* Games custom icons*/
+  .custom-icon-anagram {
+    position: relative;
+  }
+  .custom-icon-anagram ion-icon::before {
+    content: 'A';
+    font-size: 40px;
+    background-color: white;
+    padding: 2px 10px;
+    margin: 5px;
+    color: #66c430;
+    border-radius: 5px;
+  }
+  .custom-icon-quizduell {
+    position: relative;
+  }
+  .custom-icon-quizduell ion-icon::before {
+    content: 'QD';
+    font-size: 40px;
+    background-color: white;
+    padding: 2px 10px;
+    margin: 5px;
+    color: #66c430;
+    border-radius: 5px;
+  }
+  .custom-icon-mahjong {
+    position: relative;
+  }
+  .custom-icon-mahjong ion-icon::before {
+    content: 'MJ';
+    font-size: 40px;
+    background-color: white;
+    padding: 2px 10px;
+    margin: 5px;
+    color: #66c430;
+    border-radius: 5px;
+  }
+  /*End of Games custom icons */
+  /* Video custom icons*/
+  .custom-icon-younow {
+    position: relative;
+  }
+  .custom-icon-younow ion-icon::before {
+    content: 'Now';
+    font-size: 40px;
+    background-color: white;
+    padding: 2px 10px;
+    margin: 5px;
+    color: #66c430;
+    border-radius: 5px;
+  }
+  /* End of Video custom icons*/
+  /*Radio custom applogo*/
+  .custom-icon-swr {
+    position: relative;
+  }
+  .custom-icon-swr ion-icon::before {
+    content: 'SWR';
+    font-size: 40px;
+    background-color: white;
+    padding: 2px 10px;
+    margin: 5px;
+    color: #66c430;
+    border-radius: 5px;
+  }
+  /*End of Radio custom applogo*/
+  /*Library custom applogo*/
+  .custom-icon-dbuecherei {
+    position: relative;
+  }
+  .custom-icon-dbuecherei ion-icon::before {
+    content: 'Onleihe';
+    font-size: 25px;
+    background-color: white;
+    padding: 2px 10px;
+    margin: 5px;
+    color: #66c430;
+    border-radius: 5px;
+  }
+  /*End of Library custom applogo*/
+}
+

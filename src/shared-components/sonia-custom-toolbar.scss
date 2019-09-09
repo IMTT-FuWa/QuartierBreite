@@ -1,0 +1,20 @@
+sonia-custom-toolbar {
+  .sonia-toolbar {
+    /* default text and button color, if not specified in state config json */
+    color: #ffffff;
+    .bar-button-default,
+    button {
+      color: inherit;
+      &:hover {
+        color: inherit;
+        opacity: 0.8;
+      }
+    } // label in front of clear buttons
+    ion-buttons label {
+      position: relative;
+      top: 4px;
+      padding: 5px 5px 5px 10px;
+    }
+  }
+}
+

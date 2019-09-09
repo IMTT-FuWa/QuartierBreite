@@ -1,0 +1,37 @@
+{
+  "calender":{
+    "_comment": "Kalender",
+    "type": "",
+    "id": "",
+    "icon": "calendar",
+    "name": "Quartierskalender"
+  },
+  "resourcecalendar":{
+    "_comment": "Buchungskalender",
+    "type": "",
+    "id": "",
+    "icon": "checkbox",
+    "name": "Buchungskalender"
+  },
+  "weather":{
+    "_comment": "Wetter",
+    "type": "",
+    "id": "",
+    "icon": "partly-sunny",
+    "name": "Wetter"
+  },
+  "blackboard":{
+    "_comment": "Schwarze Bretter",
+    "type": "",
+    "id": "",
+    "icon": "list-box",
+    "name": "Schwarze Bretter"
+  },
+  "launcherPlaner":{
+    "_comment": "Planer",
+    "type": "",
+    "id": "",
+    "icon": "clipboard",
+    "name": "Planer"
+  }
+}

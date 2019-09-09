@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData" [isHome]="false"></sonia-header-bar>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="suchen" (ionInput)="getContacts($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <sonia-online-loading-indicator-large [loading]="loadingData"></sonia-online-loading-indicator-large>
+  <ion-list text-wrap>
+    <ion-item *ngFor="let contact of contacts" (click)="goToDetail(contact)">
+      <ion-icon name="arrow-forward" item-right></ion-icon>
+      <h1 *ngIf="contact.firstname && contact.lastname && !contact.isOrganisation">{{ contact.firstname }} {{ contact.lastname }}</h1>
+      <h1 *ngIf="contact.organisationName && contact.isOrganisation">{{ contact.organisationName }}</h1>
+      <ion-note *ngIf="contact.isOrganisation">Organisation</ion-note>
+      <ion-note *ngIf="!contact.isOrganisation">Person</ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

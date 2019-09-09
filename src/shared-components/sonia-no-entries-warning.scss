@@ -1,0 +1,21 @@
+/**
+* Loading
+**/
+
+sonia-no-entries-warning {
+  text-align: center;
+  color: color($sonia-colors, textLighter);
+  &>div {
+    padding: 20px 0;
+  }
+  p {
+    color: inherit;
+    margin: 0;
+  }
+  h1 {
+    color: color($sonia-colors, textLighter);
+    font-size: $h1-font-size;
+    font-weight: normal;
+  }
+}
+

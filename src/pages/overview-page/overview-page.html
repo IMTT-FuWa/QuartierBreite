@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData" [isHome]="isHomeOverview"></sonia-header-bar>
+  </ion-navbar>
+  <div [ngSwitch]="mode">
+    <div *ngIf="isHomeOverview">
+      <ion-toolbar *ngSwitchCase="'overview'">
+        <sonia-sub-header-bar [pageData]="pageData" (onGotoLogin)="gotoLogin()" [isOnline]="isOnline" [isAuthenticated]="isAuthenticated"
+          [username]="username"></sonia-sub-header-bar>
+      </ion-toolbar>
+    </div>
+    <ion-toolbar *ngSwitchCase="'news'">
+      <ion-buttons>
+        <button *ngIf="showRefresh" ion-button icon-left color="primary" (click)="updateList()">
+          <ion-icon name="refresh"></ion-icon>
+          Aktualisieren
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </div>
+</ion-header>
+<ion-content padding>
+  <div [ngSwitch]="mode">
+    <div *ngSwitchCase="'overview'">
+      <sonia-overview-buttons [pageData]="pageData" [overviewButtonConfigs]="overviewButtonConfigs"></sonia-overview-buttons>
+    </div>
+    <div *ngSwitchCase="'news'">
+      <sonia-news-stream-section *ngFor="let reg of moduleRegistrations" [moduleRegistration]="reg" [numberOfEntries]="5" [sortByDateProperty]="'createdAt'">
+      </sonia-news-stream-section>
+    </div>
+  </div>
+</ion-content>
+<ion-footer *ngIf="isHomeOverview">
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <div padding>
+      <ion-segment [(ngModel)]="mode" color="light">
+        <ion-segment-button value="overview" (ionSelect)="overviewSelect()">
+          Übersicht
+        </ion-segment-button>
+        <ion-segment-button value="news" (ionSelect)="updateListWithRedirect()">
+          <div [ngSwitch]="mode">
+            <div *ngSwitchCase="'overview'">
+              <span *ngIf="!calendarNewsNumber && !chatNewsNumber && !blackboardNewsNumber">Neues</span>
+            </div>
+            <span *ngSwitchCase="'news'">Neues</span>
+            <div *ngSwitchCase="'overview'">
+              <ion-badge color="noticeboard" *ngIf="calendarNewsNumber > 0">
+                <ion-icon name="calendar"></ion-icon>&nbsp;{{calendarNewsNumber}}</ion-badge>
+              <ion-badge color="communication" *ngIf="chatNewsNumber > 0">
+                <ion-icon name="chatboxes"></ion-icon>&nbsp;{{chatNewsNumber}}</ion-badge>
+              <ion-badge color="noticeboard" *ngIf="blackboardNewsNumber > 0">
+                <ion-icon name="list-box"></ion-icon>&nbsp;{{blackboardNewsNumber}}</ion-badge>
+            </div>
+          </div>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  </ion-navbar>
+</ion-footer>

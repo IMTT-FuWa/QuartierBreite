@@ -1,0 +1,12 @@
+@import "./theme/sonianetz.variables";
+sonia-sub-header-bar {
+  .sonia-sub-header-bar {
+    .title-small {
+      font-size: 1.6rem;
+      line-height: 1;
+      display: block;
+      color: color($sonia-colors, textLighter);
+    }
+  }
+}
+

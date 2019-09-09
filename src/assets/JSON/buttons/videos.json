@@ -1,0 +1,16 @@
+{
+  "launcherYoutube":{
+    "_comment": "YouTube",
+    "type": "",
+    "id": "",
+    "icon": "logo-youtube",
+    "name": "YouTube"
+  },
+  "launcherYounow":{
+    "_comment": "You Now",
+    "type": "custom-icon-younow",
+    "id": "",
+    "icon": "",
+    "name": "You Now"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "communicationColor": "#fab20b",
+  "noticeBoardColor": "#f1511b",
+  "entertainmentColor": "#66c430",
+  "serviceColor": "#64b3d8",
+  "personalColor": "#CBBB93",
+  "defaultColor": "#8F8E8E",
+  "titleColor": "#FFFFFF",
+  "colorForTesting": "#cd34cd"
+}

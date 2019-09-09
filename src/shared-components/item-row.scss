@@ -1,0 +1,33 @@
+@import "./theme/sonianetz.variables";
+sonia-item-row {
+  display: block;
+  padding-left: 16px;
+  .sonia-item-row-inner {
+    border-bottom: 1px solid color($sonia-colors, borderLight);
+  }
+  ion-item {
+    width: auto;
+  }
+  ion-label {
+    color: color($sonia-colors, textLighter);
+  }
+  .row-label {
+    padding-left: 0;
+    &+ion-item {
+      padding-left: 0;
+    }
+  }
+  .item-inner {
+    border-bottom: none;
+  }
+  ion-item.inline-label {
+    max-width: 60px;
+    .item-inner {
+      padding-right: 0;
+    }
+  }
+  .item-checkbox+.sonia-inset-radio-group {
+    padding-left: 56px;
+  }
+}
+

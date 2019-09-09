@@ -1,0 +1,23 @@
+{
+  "launcherTakepicture":{
+    "_comment": "Kamera",
+    "type": "",
+    "id": "",
+    "icon": "camera",
+    "name": "Kamera"
+  },
+  "launcherAldiFotobuch":{
+    "_comment": "ALDI Fotobuch",
+    "type": "",
+    "id": "",
+    "icon": "photos",
+    "name": "ALDI Fotobuch"
+  },
+  "launcherCewefotobook":{
+    "_comment": "Cewe Fotowelt",
+    "type": "",
+    "id": "",
+    "icon": "images",
+    "name": "Cewe Fotowelt"
+  }
+}

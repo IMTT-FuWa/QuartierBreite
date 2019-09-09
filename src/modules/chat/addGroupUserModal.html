@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Nutzer hinzufügen</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-right color="royal" (click)="dismiss()">
+              Abbrechen
+            <ion-icon name="close-circle"></ion-icon>
+            </button>
+            <button ion-button icon-right color="royal" (click)="submit()">
+                Ok
+            <ion-icon name="checkmark-circle"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <p>Nutzer wählen</p>
+    <ion-searchbar (ionInput)="searchUsers($event)"></ion-searchbar> 
+    <ion-list *ngFor="let user of users">
+        <ion-label>{{ user.firstname }} {{ user.lastname }}</ion-label>
+        <ion-list radio-group [(ngModel)]="user.role">
+            <ion-item>
+                <ion-label>Admin</ion-label>
+                <ion-radio checked="false" value="ADD_GRPADMIN" ></ion-radio>
+            </ion-item>
+            <ion-item>
+                <ion-label>Mitglied</ion-label>
+                <ion-radio checked="false" value="ADD_GRPMEMBER"></ion-radio>
+            </ion-item>
+        </ion-list>
+    </ion-list>
+</ion-content>

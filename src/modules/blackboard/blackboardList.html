@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData" [isHome]="false"></sonia-header-bar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <sonia-online-loading-indicator-large [loading]="loadingData"></sonia-online-loading-indicator-large>
+  <ion-list text-wrap>
+    <ion-item *ngFor="let blackboard of blackboards" (click)="openBlackboard(blackboard)">
+      <ion-icon name="arrow-forward" item-right></ion-icon>
+      <p *ngIf="platform.is('mobile') && platform.isPortrait()">{{ blackboard.title }}</p>
+      <h2 *ngIf="!platform.is('mobile') || platform.isLandscape()">{{ blackboard.title }}</h2>
+      <p style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" col-50>
+        {{blackboard.description}}
+      </p>
+    </ion-item>
+  </ion-list>
+
+  <!--<sonia-blackboard-overview-buttons [pageData]="pageData" [blackboards]="blackboards"></sonia-blackboard-overview-buttons>-->
+
+  <!--<ion-row wrap class="sonia-overview-buttons-row">
+    <ion-col class="sonia-overview-buttons-col" *ngFor="let blackboard of blackboards">
+      <button ion-button text-wrap [ngStyle]="styles" id="{{layout.id}}" class="{{layout.type}}" (click)="onClick($event)">
+        <ion-icon name="{{layout.icon}}"></ion-icon>{{layout.name}}
+      </button>
+    </ion-col>
+  </ion-row>-->
+
+</ion-content>

@@ -1,0 +1,51 @@
+{
+  "launcherSkype":{
+    "_comment": "Skype",
+    "type": "",
+    "id": "",
+    "icon": "logo-skype",
+    "name": "Skype"
+  },
+  "launcherEmail":{
+    "_comment": "Email",
+    "type": "",
+    "id": "",
+    "icon": "mail",
+    "name": "E-Mail"
+  },
+  "launcherAddressbook":{
+    "_comment": "Adressbuch",
+    "type": "",
+    "id": "",
+    "icon": "contacts",
+    "name": "Adressbuch"
+  },
+  "emergencyContacts": {
+    "_comment": "Notkontakte",
+    "type": "",
+    "id": "",
+    "icon": "call",
+    "name": "Quartierskontakte"
+  },
+  "emergencyEmail": {
+    "_comment": "Notmail",
+    "type": "",
+    "id": "",
+    "icon": "send",
+    "name": "ServicePunkt Kontaktieren"
+  },
+  "socialStationEmail": {
+    "_comment": "Notmail",
+    "type": "",
+    "id": "",
+    "icon": "send",
+    "name": "Sozialstation Kontaktieren"
+  },
+  "chat": {
+    "_comment": "instant Message Chat",
+    "type": "",
+    "id": "",
+    "icon": "chatbubbles",
+    "name": "Briefkasten"
+  }
+}

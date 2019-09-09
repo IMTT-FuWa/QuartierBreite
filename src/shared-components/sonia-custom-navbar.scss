@@ -1,0 +1,21 @@
+/* custom sonia navbar */
+
+sonia-navbar {
+  .sonia-navbar {
+    /* default text and button color, if not specified in state config json */
+    color: #ffffff;
+    /* ionic overrides - so we can set color on parent elements */
+    .toolbar-title {
+      color: inherit;
+    }
+    .back-button,
+    .button {
+      color: inherit;
+      &:hover {
+        color: inherit;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,14 @@
+<!-- Header and Footer area - must be present on every @Page -->
+<ion-header>
+  <ion-navbar [sonia-custom-navbar]="pageData">
+    <sonia-header-bar [pageData]="pageData" [isHome]="false"></sonia-header-bar>
+  </ion-navbar>
+</ion-header>
+<!-- END: Header and Footer area -->
+
+<ion-content padding>
+  <h1>Example module root</h1>
+  <p> Here we test out module stuff </p>
+  <button ion-button color="primary" (click)="accessGallery()">Open Gallery</button>
+</ion-content>
+
